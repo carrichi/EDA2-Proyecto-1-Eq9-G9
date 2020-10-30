@@ -18,6 +18,7 @@ import java.util.stream.Stream;
 public class Main {
     
     public static void main (String[] args) throws IOException{
+    
     // Indicar dirección de datos dada su ruta relativa.     
     Path datos = Paths.get("./Claves.txt");
     ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
@@ -35,13 +36,10 @@ public class Main {
     
     datosAlumnos.forEach(l -> {
         System.out.println(l+"<----");
-        String[] linea = l.split(",");
+        String[] linea = l.split("\\,");
         Alumno alumno = new Alumno(linea[0], linea[1], linea[2]);
         listadatos.add(alumno);
     });
-
-
-    System.out.println(listadatos.toString());
 
     // Esto es para imprimir la lista cuando ya este separada 
        
