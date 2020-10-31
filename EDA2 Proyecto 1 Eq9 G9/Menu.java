@@ -15,33 +15,43 @@ public class Menu{
 		System.out.println("############ BIENVENIDO A LOS ORDENAMIENTOS EXTERNOS #############");
 		System.out.println("##################################################################");
 		System.out.println();
+		char opcion;
+		do{
+
 		System.out.println("¿Qué tipo de ordenamiento quieres implementar?");
 		System.out.println("1. Ordenamiento por Polifase. ");
 		System.out.println("2. Ordenamiento por Mezcla equilibrada. ");
 		System.out.println("3. Ordenamiento por Radix. ");
 		System.out.printf("\nElige tu opción con el número.\n > ");
-		int opcion = sc.nextInt();
+		opcion = sc.nextLine().charAt(0);
 		switch (opcion){
-			case 1:
+			case '1':
 				System.out.println("##################################################################");
-				System.out.println("############# HAS ELEGIDO ORDENAR MEDIANTE: Polifase #############");
+				System.out.println("#             HAS ELEGIDO ORDENAR MEDIANTE: Polifase             #");
 				System.out.println("##################################################################");
 			break;
-			case 2:
+			case '2':
 				System.out.println("##################################################################");
-				System.out.println("HAS ELIGIDO ORDENAR MEDIANTE: Mezcla equilibrada");
-				System.out.println("##################################################################");			break;
-			case 3:
+				System.out.println("#        HAS ELIGIDO ORDENAR MEDIANTE: Mezcla equilibrada        #");
 				System.out.println("##################################################################");
-				System.out.println("HAS ELIGIDO ORDENAR MEDIANTE: Radix");
+			break;
+			case '3':
+				System.out.println("##################################################################");
+				System.out.println("#               HAS ELIGIDO ORDENAR MEDIANTE: Radix              #");
 				System.out.println("##################################################################");
 			break;
 			default:
 				System.out.println("##################################################################");
-				System.out.println("NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.");
+				System.out.println("#        NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.         #");
 				System.out.println("##################################################################");
 			break;
 		}
-
+		System.out.printf("\n\nPor el momento ya has terminado, ¿quieres probar otro método de ordenamiento externo? (S/n)\n > ");
+		opcion = sc.nextLine().charAt(0);
+		if((opcion!='S')&&(opcion!='n')){
+			opcion='S';
+		}
+		System.out.println();
+		}while(opcion=='S');
 	}	
 }
