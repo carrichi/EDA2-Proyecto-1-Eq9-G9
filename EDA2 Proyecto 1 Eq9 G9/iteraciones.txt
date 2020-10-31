@@ -1,0 +1,857 @@
+***Fase 1***
+F1
+Agustin,  Silva del Moral,  679050
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Luciano,  García Casals,  806416
+Roberto Carlos,  Carrichi de la Cruz,  698555
+F2
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Eugenio,  Batista Diego,  309158
+Gerard,  Matos Veiga,  156757
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+F1
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Tomasa,  Nuñez Lorente,  911083
+F2
+Bartolome,  da Silva Raya,  156461
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roger,  Valls Martin,  587652
+Victorina Tello,  Marin,  297325
+F1
+Chloe,  Ortega Ojeda,  671722
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+F2
+Abraham,  Galindo Ruiz,  160885
+Ana-Maria,  Muñoz Vargas,  685657
+Andrés Manuel,  López Obrador,  905790
+César,  Sampedro Raya,  167096
+Emiliano,  Martinez Redondo,  837439
+Erika,  Fuentes Ferreira,  650695
+Hugo,  López-Gatell Ramírez,  761203
+F1
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+F2
+Erick Rodrigo,  Minero Pineda,  609488
+Héctor Mauricio,  Serrano Monteagudo,  173803
+Isaac Alejandro,  Sanabria Mendoza,  599123
+Juan,  Angeles Prados,  248077
+Juan Arturo,  Lira Navarro,  124392
+Kevin Uriel,  Delgado Carranza,  162813
+Marco Antonio,  Suárez Pérez,  154255
+F1
+Mario,  Huarte Carrera,  270777
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+F2
+Alfredo,  Sánchez Sastre,  161221
+Amalia,  Parrilla Baez,  818241
+Ander,  Puerta Cuenca,  715349
+Celestino,  Lafuente Carreras,  880084
+Emiliano,  Huertas Araujo,  757110
+Ramón,  Codina Paez,  332721
+Socorro,  Varela Garces,  890909
+F1
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+F2
+Adil,  Manzano Minguez,  673560
+Bibiana,  Porras del Pino,  889093
+Jorge Luis,  Cuenca Moral,  414023
+Lara,  Domenech Fuente,  986920
+Lorenza,  Gaspar Bernal,  422270
+Mar,  Aparicio Gisbert,  594288
+Paco,  Lujan Sevillano,  587376
+F1
+Aitziber,  Sanz Acedo,  114940
+Elisabeth,  Soler Bello,  965703
+Elisenda,  Lobo Bello,  875268
+Erica,  Cuevas Villanueva,  236362
+Felisa,  Casanova Angulo,  962085
+Hicham,  Vasquez Ibañez,  896042
+Nicole,  Martín Prat,  219083
+F2
+Brenda,  Garces Narvaez,  855582
+Fermina,  Guzman Galvan,  545598
+Gael,  Ferre Arroyo,  288617
+Jacinto,  San Jose Andujar,  344358
+Latifa,  Campillo Carbonell,  942635
+Raymundo,  Pallares España,  599060
+Rodolfo,  Cazorla Lujan,  663854
+F1
+Berta,  Rodrguez Molina,  838698
+Eric,  Arenas Sales,  294032
+Israel,  Castilla Casanova,  692983
+Josefa,  Peralta Antolin,  947793
+Josue,  Acuña Rio,  111466
+José,  Guillen Marti,  552228
+Simona,  Iglesias Hurtado,  430432
+F2
+Adam,   Holgado Castañeda,  343874
+Consuelo,  Martinez de La torre,  515334 
+Iker,  Narvaez Bello,  819493
+Irati,  Lafuente Seoane,  601760
+Javier,  Cárdenas Baena,  139682
+Lucas,  Castañeda Naranjo,  296992
+Miguel,  Lozano Alvaro,  380871
+F1
+Alvaro,  Cañizares Centeno,  157274
+Ryan,  González Montes,  655331
+Sabela,  Mejia Mayor,  376141
+F2
+
+Fase 1/F1
+
+Agustin,  Silva del Moral,  679050
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Luciano,  García Casals,  806416
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+Mario,  Huarte Carrera,  270777
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+Aitziber,  Sanz Acedo,  114940
+Elisabeth,  Soler Bello,  965703
+Elisenda,  Lobo Bello,  875268
+Erica,  Cuevas Villanueva,  236362
+Felisa,  Casanova Angulo,  962085
+Hicham,  Vasquez Ibañez,  896042
+Nicole,  Martín Prat,  219083
+Berta,  Rodrguez Molina,  838698
+Eric,  Arenas Sales,  294032
+Israel,  Castilla Casanova,  692983
+Josefa,  Peralta Antolin,  947793
+Josue,  Acuña Rio,  111466
+José,  Guillen Marti,  552228
+Simona,  Iglesias Hurtado,  430432
+Alvaro,  Cañizares Centeno,  157274
+Ryan,  González Montes,  655331
+Sabela,  Mejia Mayor,  376141
+
+Fase 1/F2
+
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Eugenio,  Batista Diego,  309158
+Gerard,  Matos Veiga,  156757
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roger,  Valls Martin,  587652
+Victorina Tello,  Marin,  297325
+Abraham,  Galindo Ruiz,  160885
+Ana-Maria,  Muñoz Vargas,  685657
+Andrés Manuel,  López Obrador,  905790
+César,  Sampedro Raya,  167096
+Emiliano,  Martinez Redondo,  837439
+Erika,  Fuentes Ferreira,  650695
+Hugo,  López-Gatell Ramírez,  761203
+Erick Rodrigo,  Minero Pineda,  609488
+Héctor Mauricio,  Serrano Monteagudo,  173803
+Isaac Alejandro,  Sanabria Mendoza,  599123
+Juan,  Angeles Prados,  248077
+Juan Arturo,  Lira Navarro,  124392
+Kevin Uriel,  Delgado Carranza,  162813
+Marco Antonio,  Suárez Pérez,  154255
+Alfredo,  Sánchez Sastre,  161221
+Amalia,  Parrilla Baez,  818241
+Ander,  Puerta Cuenca,  715349
+Celestino,  Lafuente Carreras,  880084
+Emiliano,  Huertas Araujo,  757110
+Ramón,  Codina Paez,  332721
+Socorro,  Varela Garces,  890909
+Adil,  Manzano Minguez,  673560
+Bibiana,  Porras del Pino,  889093
+Jorge Luis,  Cuenca Moral,  414023
+Lara,  Domenech Fuente,  986920
+Lorenza,  Gaspar Bernal,  422270
+Mar,  Aparicio Gisbert,  594288
+Paco,  Lujan Sevillano,  587376
+Brenda,  Garces Narvaez,  855582
+Fermina,  Guzman Galvan,  545598
+Gael,  Ferre Arroyo,  288617
+Jacinto,  San Jose Andujar,  344358
+Latifa,  Campillo Carbonell,  942635
+Raymundo,  Pallares España,  599060
+Rodolfo,  Cazorla Lujan,  663854
+Adam,   Holgado Castañeda,  343874
+Consuelo,  Martinez de La torre,  515334 
+Iker,  Narvaez Bello,  819493
+Irati,  Lafuente Seoane,  601760
+Javier,  Cárdenas Baena,  139682
+Lucas,  Castañeda Naranjo,  296992
+Miguel,  Lozano Alvaro,  380871
+
+
+***Fase 2***
+
+F0
+Agustin,  Silva del Moral,  679050
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Eugenio,  Batista Diego,  309158
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Gerard,  Matos Veiga,  156757
+Luciano,  García Casals,  806416
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+
+F3
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Roger,  Valls Martin,  587652
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+
+F0
+Agustin,  Silva del Moral,  679050
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Eugenio,  Batista Diego,  309158
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Gerard,  Matos Veiga,  156757
+Luciano,  García Casals,  806416
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+Mario,  Huarte Carrera,  270777
+
+F3
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Roger,  Valls Martin,  587652
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+Aitziber,  Sanz Acedo,  114940
+
+F0
+Agustin,  Silva del Moral,  679050
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Eugenio,  Batista Diego,  309158
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Gerard,  Matos Veiga,  156757
+Luciano,  García Casals,  806416
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+Mario,  Huarte Carrera,  270777
+Elisabeth,  Soler Bello,  965703
+Elisenda,  Lobo Bello,  875268
+Erica,  Cuevas Villanueva,  236362
+Felisa,  Casanova Angulo,  962085
+Hicham,  Vasquez Ibañez,  896042
+Nicole,  Martín Prat,  219083
+Berta,  Rodrguez Molina,  838698
+Eric,  Arenas Sales,  294032
+Israel,  Castilla Casanova,  692983
+Josefa,  Peralta Antolin,  947793
+Josue,  Acuña Rio,  111466
+José,  Guillen Marti,  552228
+Simona,  Iglesias Hurtado,  430432
+Alvaro,  Cañizares Centeno,  157274
+
+F3
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Roger,  Valls Martin,  587652
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+Aitziber,  Sanz Acedo,  114940
+Ryan,  González Montes,  655331
+Sabela,  Mejia Mayor,  376141
+
+F0
+Agustin,  Silva del Moral,  679050
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Eugenio,  Batista Diego,  309158
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Gerard,  Matos Veiga,  156757
+Luciano,  García Casals,  806416
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+Mario,  Huarte Carrera,  270777
+Elisabeth,  Soler Bello,  965703
+Elisenda,  Lobo Bello,  875268
+Erica,  Cuevas Villanueva,  236362
+Felisa,  Casanova Angulo,  962085
+Hicham,  Vasquez Ibañez,  896042
+Nicole,  Martín Prat,  219083
+Berta,  Rodrguez Molina,  838698
+Eric,  Arenas Sales,  294032
+Israel,  Castilla Casanova,  692983
+Josefa,  Peralta Antolin,  947793
+Josue,  Acuña Rio,  111466
+José,  Guillen Marti,  552228
+Simona,  Iglesias Hurtado,  430432
+Alvaro,  Cañizares Centeno,  157274
+Victorina Tello,  Marin,  297325
+Abraham,  Galindo Ruiz,  160885
+Ana-Maria,  Muñoz Vargas,  685657
+Andrés Manuel,  López Obrador,  905790
+César,  Sampedro Raya,  167096
+Emiliano,  Martinez Redondo,  837439
+Erika,  Fuentes Ferreira,  650695
+Hugo,  López-Gatell Ramírez,  761203
+Erick Rodrigo,  Minero Pineda,  609488
+Héctor Mauricio,  Serrano Monteagudo,  173803
+Isaac Alejandro,  Sanabria Mendoza,  599123
+Juan,  Angeles Prados,  248077
+Juan Arturo,  Lira Navarro,  124392
+Kevin Uriel,  Delgado Carranza,  162813
+
+F3
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Roger,  Valls Martin,  587652
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+Aitziber,  Sanz Acedo,  114940
+Ryan,  González Montes,  655331
+Sabela,  Mejia Mayor,  376141
+
+F0
+Agustin,  Silva del Moral,  679050
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Eugenio,  Batista Diego,  309158
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Gerard,  Matos Veiga,  156757
+Luciano,  García Casals,  806416
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+Mario,  Huarte Carrera,  270777
+Elisabeth,  Soler Bello,  965703
+Elisenda,  Lobo Bello,  875268
+Erica,  Cuevas Villanueva,  236362
+Felisa,  Casanova Angulo,  962085
+Hicham,  Vasquez Ibañez,  896042
+Nicole,  Martín Prat,  219083
+Berta,  Rodrguez Molina,  838698
+Eric,  Arenas Sales,  294032
+Israel,  Castilla Casanova,  692983
+Josefa,  Peralta Antolin,  947793
+Josue,  Acuña Rio,  111466
+José,  Guillen Marti,  552228
+Simona,  Iglesias Hurtado,  430432
+Alvaro,  Cañizares Centeno,  157274
+Victorina Tello,  Marin,  297325
+Abraham,  Galindo Ruiz,  160885
+Ana-Maria,  Muñoz Vargas,  685657
+Andrés Manuel,  López Obrador,  905790
+César,  Sampedro Raya,  167096
+Emiliano,  Martinez Redondo,  837439
+Erika,  Fuentes Ferreira,  650695
+Hugo,  López-Gatell Ramírez,  761203
+Erick Rodrigo,  Minero Pineda,  609488
+Héctor Mauricio,  Serrano Monteagudo,  173803
+Isaac Alejandro,  Sanabria Mendoza,  599123
+Juan,  Angeles Prados,  248077
+Juan Arturo,  Lira Navarro,  124392
+Kevin Uriel,  Delgado Carranza,  162813
+Marco Antonio,  Suárez Pérez,  154255
+Alfredo,  Sánchez Sastre,  161221
+Amalia,  Parrilla Baez,  818241
+Ander,  Puerta Cuenca,  715349
+Celestino,  Lafuente Carreras,  880084
+Emiliano,  Huertas Araujo,  757110
+Ramón,  Codina Paez,  332721
+Socorro,  Varela Garces,  890909
+Adil,  Manzano Minguez,  673560
+Bibiana,  Porras del Pino,  889093
+Jorge Luis,  Cuenca Moral,  414023
+Lara,  Domenech Fuente,  986920
+Lorenza,  Gaspar Bernal,  422270
+Mar,  Aparicio Gisbert,  594288
+
+F3
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Roger,  Valls Martin,  587652
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+Aitziber,  Sanz Acedo,  114940
+Ryan,  González Montes,  655331
+Sabela,  Mejia Mayor,  376141
+
+F0
+Agustin,  Silva del Moral,  679050
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Eugenio,  Batista Diego,  309158
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Gerard,  Matos Veiga,  156757
+Luciano,  García Casals,  806416
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+Mario,  Huarte Carrera,  270777
+Elisabeth,  Soler Bello,  965703
+Elisenda,  Lobo Bello,  875268
+Erica,  Cuevas Villanueva,  236362
+Felisa,  Casanova Angulo,  962085
+Hicham,  Vasquez Ibañez,  896042
+Nicole,  Martín Prat,  219083
+Berta,  Rodrguez Molina,  838698
+Eric,  Arenas Sales,  294032
+Israel,  Castilla Casanova,  692983
+Josefa,  Peralta Antolin,  947793
+Josue,  Acuña Rio,  111466
+José,  Guillen Marti,  552228
+Simona,  Iglesias Hurtado,  430432
+Alvaro,  Cañizares Centeno,  157274
+Victorina Tello,  Marin,  297325
+Abraham,  Galindo Ruiz,  160885
+Ana-Maria,  Muñoz Vargas,  685657
+Andrés Manuel,  López Obrador,  905790
+César,  Sampedro Raya,  167096
+Emiliano,  Martinez Redondo,  837439
+Erika,  Fuentes Ferreira,  650695
+Hugo,  López-Gatell Ramírez,  761203
+Erick Rodrigo,  Minero Pineda,  609488
+Héctor Mauricio,  Serrano Monteagudo,  173803
+Isaac Alejandro,  Sanabria Mendoza,  599123
+Juan,  Angeles Prados,  248077
+Juan Arturo,  Lira Navarro,  124392
+Kevin Uriel,  Delgado Carranza,  162813
+Marco Antonio,  Suárez Pérez,  154255
+Alfredo,  Sánchez Sastre,  161221
+Amalia,  Parrilla Baez,  818241
+Ander,  Puerta Cuenca,  715349
+Celestino,  Lafuente Carreras,  880084
+Emiliano,  Huertas Araujo,  757110
+Ramón,  Codina Paez,  332721
+Socorro,  Varela Garces,  890909
+Adil,  Manzano Minguez,  673560
+Bibiana,  Porras del Pino,  889093
+Jorge Luis,  Cuenca Moral,  414023
+Lara,  Domenech Fuente,  986920
+Lorenza,  Gaspar Bernal,  422270
+Mar,  Aparicio Gisbert,  594288
+Paco,  Lujan Sevillano,  587376
+Brenda,  Garces Narvaez,  855582
+Fermina,  Guzman Galvan,  545598
+Gael,  Ferre Arroyo,  288617
+Jacinto,  San Jose Andujar,  344358
+Latifa,  Campillo Carbonell,  942635
+Raymundo,  Pallares España,  599060
+Rodolfo,  Cazorla Lujan,  663854
+Adam,   Holgado Castañeda,  343874
+Consuelo,  Martinez de La torre,  515334 
+Iker,  Narvaez Bello,  819493
+Irati,  Lafuente Seoane,  601760
+Javier,  Cárdenas Baena,  139682
+Lucas,  Castañeda Naranjo,  296992
+
+F3
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Roger,  Valls Martin,  587652
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+Aitziber,  Sanz Acedo,  114940
+Ryan,  González Montes,  655331
+Sabela,  Mejia Mayor,  376141
+
+F0
+Agustin,  Silva del Moral,  679050
+Alejandro,  Torres Ureña,  744781
+Ander,  Cuevas Garces,  615697
+Arturo,  Gonzalez Cuellar,  575804
+Ayman,  Marin Soriano,  401942
+Eugenio,  Batista Diego,  309158
+Felisa,  Ortega Baez,  751695
+Fátima,  Miranda Bueno,  500142
+Gerard,  Matos Veiga,  156757
+Luciano,  García Casals,  806416
+Modesta,  Rojo Olivera,  130111
+Noa,  Alfaro Ferrer,  100554
+Paco,  Prado Zafra,  790908
+Bartolome,  da Silva Raya,  156461
+Lúcia,  Arana Baena,  647083
+Marco,  Martorell Puerta,  620878
+María,  Vilchez Cordon,  258802
+Nekane,  Barrios Martínez,  748595
+Noah,  Garca Uriarte,  923712
+Soraya,  Barragan Cordon,  912811
+Ailyn,  Merino Hernández,  704552
+Athenas Marlene,  Miranda Cantero,  183827
+Brian Jassiel,  Bautista Pérez,  515689
+Conic,  Ortega Lujano,  193857
+César Yair,  Guevara Bernabeu,  692849
+Daniel Esteban,  Alcantara Paleo,  635039
+Diego,  Galnares Ruíz,  498406
+Mario,  Huarte Carrera,  270777
+Elisabeth,  Soler Bello,  965703
+Elisenda,  Lobo Bello,  875268
+Erica,  Cuevas Villanueva,  236362
+Felisa,  Casanova Angulo,  962085
+Hicham,  Vasquez Ibañez,  896042
+Nicole,  Martín Prat,  219083
+Berta,  Rodrguez Molina,  838698
+Eric,  Arenas Sales,  294032
+Israel,  Castilla Casanova,  692983
+Josefa,  Peralta Antolin,  947793
+Josue,  Acuña Rio,  111466
+José,  Guillen Marti,  552228
+Simona,  Iglesias Hurtado,  430432
+Alvaro,  Cañizares Centeno,  157274
+Victorina Tello,  Marin,  297325
+Abraham,  Galindo Ruiz,  160885
+Ana-Maria,  Muñoz Vargas,  685657
+Andrés Manuel,  López Obrador,  905790
+César,  Sampedro Raya,  167096
+Emiliano,  Martinez Redondo,  837439
+Erika,  Fuentes Ferreira,  650695
+Hugo,  López-Gatell Ramírez,  761203
+Erick Rodrigo,  Minero Pineda,  609488
+Héctor Mauricio,  Serrano Monteagudo,  173803
+Isaac Alejandro,  Sanabria Mendoza,  599123
+Juan,  Angeles Prados,  248077
+Juan Arturo,  Lira Navarro,  124392
+Kevin Uriel,  Delgado Carranza,  162813
+Marco Antonio,  Suárez Pérez,  154255
+Alfredo,  Sánchez Sastre,  161221
+Amalia,  Parrilla Baez,  818241
+Ander,  Puerta Cuenca,  715349
+Celestino,  Lafuente Carreras,  880084
+Emiliano,  Huertas Araujo,  757110
+Ramón,  Codina Paez,  332721
+Socorro,  Varela Garces,  890909
+Adil,  Manzano Minguez,  673560
+Bibiana,  Porras del Pino,  889093
+Jorge Luis,  Cuenca Moral,  414023
+Lara,  Domenech Fuente,  986920
+Lorenza,  Gaspar Bernal,  422270
+Mar,  Aparicio Gisbert,  594288
+Paco,  Lujan Sevillano,  587376
+Brenda,  Garces Narvaez,  855582
+Fermina,  Guzman Galvan,  545598
+Gael,  Ferre Arroyo,  288617
+Jacinto,  San Jose Andujar,  344358
+Latifa,  Campillo Carbonell,  942635
+Raymundo,  Pallares España,  599060
+Rodolfo,  Cazorla Lujan,  663854
+Adam,   Holgado Castañeda,  343874
+Consuelo,  Martinez de La torre,  515334 
+Iker,  Narvaez Bello,  819493
+Irati,  Lafuente Seoane,  601760
+Javier,  Cárdenas Baena,  139682
+Lucas,  Castañeda Naranjo,  296992
+Miguel,  Lozano Alvaro,  380871
+
+F3
+Erika,  Sobrino Pascual,  299914
+Fabian,  Puerto Aguirre,  512884
+Josefina,  Teruel Rosell,  927604
+Lia,  Giner Crespo,  491736
+Roberto Carlos,  Carrichi de la Cruz,  698555
+Bianca,  Guirado Hinojosa,  229332
+Bibiana,  Mejia Vizcaino,  116955
+Claudia,  Cruz García,  121517
+Daniela,  Canales Catala,  222428
+Maximiliano,  Piña Segura,  649975 
+Paco,  Barbera Salgado,  266042
+Roger,  Valls Martin,  587652
+Tomasa,  Nuñez Lorente,  911083
+Chloe,  Ortega Ojeda,  671722
+Mauricio,  Rodriguez Rosa,  274997
+Michel Karina,  Eyssautier Jaramillo,  191325
+Nancy Vanessa,  Gómez Carranza,  369277
+Omar Armando,  Olazábal Perez,  571989
+Pablo Fernando,  Rubio Leiva,  500461
+Pamela,  Camarillo Royo,  266049
+Alessandro,  Quiros Fraile,  314428
+Ane,  Montero Leon,  717561
+Anna,  Baeza Acevedo,  773471
+Jimena,  Espinoza Mateo,  418583
+Lia,  Aviles Mata,  936574
+Moussa,  Torre Silva,  738076
+Richard,  Granados de la Rosa,  906249
+Aitziber,  Sanz Acedo,  114940
+Ryan,  González Montes,  655331
+Sabela,  Mejia Mayor,  376141
