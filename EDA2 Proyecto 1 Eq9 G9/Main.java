@@ -20,7 +20,7 @@ public class Main {
     public static void main (String[] args) throws IOException{
     
     // Indicar dirección de datos dada su ruta relativa.     
-    Path datos = Paths.get("./Claves.txt");
+    Path datos = Paths.get("./claves.txt");
     ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
     
     BufferedReader  brDatos = Files.newBufferedReader(datos);
