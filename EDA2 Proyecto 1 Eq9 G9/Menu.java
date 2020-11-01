@@ -9,21 +9,20 @@ public class Menu{
 		// final String aux= "\033[";
 		// System.out.print(aux+ "2J"); 
 
-		Scanner sc = new Scanner(System.in);
-
+		Util opcion = new Util();
 		System.out.println("##################################################################");
 		System.out.println("############ BIENVENIDO A LOS ORDENAMIENTOS EXTERNOS #############");
 		System.out.println("##################################################################");
 		System.out.println();
-		char opcion;
 		do{
 			System.out.println("¿Qué tipo de ordenamiento quieres implementar?");
 			System.out.println("1. Ordenamiento por Polifase. ");
 			System.out.println("2. Ordenamiento por Mezcla equilibrada. ");
 			System.out.println("3. Ordenamiento por Radix. ");
+			System.out.println("4. Salir.");
 			System.out.printf("\nElige tu opción con el número.\n > ");
-			opcion = sc.nextLine().charAt(0);
-			switch (opcion){
+			opcion.setChar();
+			switch (opcion.getChar()){
 				case '1':
 					System.out.println("##################################################################");
 					System.out.println("#             HAS ELEGIDO ORDENAR MEDIANTE: Polifase             #");
@@ -40,17 +39,17 @@ public class Menu{
 					System.out.println("##################################################################");
 				break;
 				default:
-					System.out.println("##################################################################");
-					System.out.println("#        NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.         #");
-					System.out.println("##################################################################");
+					System.out.printf("\n      ¡¡¡  NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.  !!!   \n > ");
 				break;
 			}
-			System.out.printf("\n\nPor el momento ya has terminado, ¿quieres probar otro método de ordenamiento externo? (S/n)\n > ");
-			opcion = sc.nextLine().charAt(0);
-			if((opcion!='S')&&(opcion!='n')){
-				opcion='S';
+			if(opcion.getChar()=='1'||opcion.getChar()=='2'||opcion.getChar()=='3'){
+				System.out.printf("\n\nPor el momento ya has terminado, ¿quieres probar otro método de ordenamiento externo? (S/n) Por defecto es 'S'.\n > ");
+			}
+			opcion.setChar();
+			if((opcion.getChar()!='S')&&(opcion.getChar()!='n')){
+				opcion.setChar();
 			}
 			System.out.println();
-		}while(opcion=='S');
+		}while(opcion.getChar()=='S');
 	}	
 }

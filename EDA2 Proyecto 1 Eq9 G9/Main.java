@@ -18,36 +18,46 @@ import java.util.stream.Stream;
 public class Main {
     
     public static void main (String[] args) throws IOException{
-    
-    // Indicar dirección de datos dada su ruta relativa.     
-    Path datos = Paths.get("./claves.txt");
-    ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
-    
-    BufferedReader  brDatos = Files.newBufferedReader(datos);
-    
-    // Obtenemos los datos de las lineas
-    Stream <String> lineasDatos = brDatos.lines();
-    
-    // Imprime los datos del archivo
-    // lineasDatos.forEach(System.out::println);
-    
+        // Indicar dirección de datos dada su ruta relativa.     
+        Path datos = Paths.get("./claves.txt");
+        ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
+        
+        BufferedReader  brDatos = Files.newBufferedReader(datos);
+        
+        // Obtenemos los datos de las lineas
+        Stream <String> lineasDatos = brDatos.lines();
+        
+        // Imprime los datos del archivo
+        // lineasDatos.forEach(System.out::println);
+        
 
-    Stream <String> datosAlumnos = brDatos.lines();
-    
-    datosAlumnos.forEach(l -> {
-        System.out.println(l+"<----");
-        String[] linea = l.split("\\,");
-        Alumno alumno = new Alumno(linea[0], linea[1], linea[2]);
-        listadatos.add(alumno);
-    });
+        Stream <String> datosAlumnos = brDatos.lines();
+        
+        datosAlumnos.forEach(l -> {
+            System.out.println(l+"<----");
+            String[] linea = l.split("\\,");
+            Alumno alumno = new Alumno(linea[0], linea[1], linea[2]);
+            listadatos.add(alumno);
+        });
 
-    // Esto es para imprimir la lista cuando ya este separada 
-       
-    for(Alumno datosAlumno: listadatos){
-       System.out.println("Apellido: "+ datosAlumno.getApellido());
-       System.out.println("Nombre: "+ datosAlumno.getNombre());
-       System.out.println("NoCuenta: "+ datosAlumno.getNoCuenta());
-    }
-   
+        // Esto es para imprimir la lista cuando ya este separada 
+           
+
+        /*for(Alumno i:listadatos){
+            System.out.println(i.getNombre());
+        }*/
+        
+        Ordenamientos buscar = new Ordenamientos();
+        buscar.polifase(listadatos);
+        
+        //System.out.println(listadatos.toString());
+
+        // Esto es para imprimir la lista cuando ya este separada 
+           
+       /* for(Alumno datosAlumno: listadatos){
+           System.out.println("Apellido: "+ datosAlumno.getApellido());
+           System.out.println("Nombre: "+ datosAlumno.getNombre());
+           System.out.println("NoCuenta: "+ datosAlumno.getNoCuenta());
+        }*/
     }
 }
