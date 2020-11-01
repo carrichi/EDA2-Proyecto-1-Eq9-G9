@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -14,40 +13,40 @@ import java.util.List;
  * @author Arturo Gonzalez
  */
 public class RadixSort {
-    private ArrayList<ficheros> listadatos;
+    private ArrayList<Alumno> listadatos;
     
-    public RadixSort(ArrayList<ficheros> listadatos){
+    public RadixSort(ArrayList<Alumno> listadatos){
         this.listadatos = listadatos;
     }
 
     /**
      * @return the listadatos
      */
-    public ArrayList<ficheros> getListadatos() {
+    public ArrayList<Alumno> getListadatos() {
         return listadatos;
     }
 
     /**
      * @param listadatos the listadatos to set
      */
-    public void setListadatos(ArrayList<ficheros> listadatos) {
+    public void setListadatos(ArrayList<Alumno> listadatos) {
         this.listadatos = listadatos;
     }
-    
-    
-     public ArrayList<ficheros> OrdenarporNC(ArrayList<ficheros> listadatos, String ruta){
+      
+    public ArrayList<Alumno> OrdenarporNC(ArrayList<Alumno> listadatos, String ruta){
+        
         //Se crean las sublistas para almecenar los numeros con sus respectivos valores significativos 
-        List<ficheros> lista0 = new LinkedList<>();
-        List<ficheros> lista1 = new LinkedList<>();
-        List<ficheros> lista2 = new LinkedList<>();
-        List<ficheros> lista3 = new LinkedList<>();
-        List<ficheros> lista4 = new LinkedList<>();
-        List<ficheros> lista5 = new LinkedList<>();
-        List<ficheros> lista6 = new LinkedList<>();
-        List<ficheros> lista7 = new LinkedList<>();
-        List<ficheros> lista8 = new LinkedList<>();
-        List<ficheros> lista9 = new LinkedList<>();
-        ArrayList<ficheros> listads = new ArrayList<>(); 
+        List<Alumno> lista0 = new LinkedList<>();
+        List<Alumno> lista1 = new LinkedList<>();
+        List<Alumno> lista2 = new LinkedList<>();
+        List<Alumno> lista3 = new LinkedList<>();
+        List<Alumno> lista4 = new LinkedList<>();
+        List<Alumno> lista5 = new LinkedList<>();
+        List<Alumno> lista6 = new LinkedList<>();
+        List<Alumno> lista7 = new LinkedList<>();
+        List<Alumno> lista8 = new LinkedList<>();
+        List<Alumno> lista9 = new LinkedList<>();
+        ArrayList<Alumno> listads = new ArrayList<>(); 
       
         int l=0;
         char indice;
@@ -57,9 +56,8 @@ public class RadixSort {
         System.out.println("Lista por parametro: ");
         
         // Se clona la lista original, en esta lista se realizaran los cambios de ordenamiento
-        // para no altarar la lista inicial 
-        listads = (ArrayList<ficheros>) listadatos.clone();
-        
+        // para no alterar la lista inicial.
+        listads = (ArrayList<Alumno>) listadatos.clone();
       
        //Se crean los ciclos for anidados, el primero recorre los 6 digitos del numero
        //El segundo recorre los elementos de la lista 
@@ -73,54 +71,41 @@ public class RadixSort {
                 indice = aux[0].charAt(i);
                 //System.out.println("valor significativo: "+ indice);
                 
-                        // EL numero se almacena en su cola correspondiente 
-                        if (indice == '0'){
-                            lista0.add(listads.get(j));
-     
-                        }
-                        if (indice == '1'){
-                            lista1.add(listads.get(j));
-                            
-                            
-                        }
-                        if (indice == '2'){
-                            lista2.add(listads.get(j));
-                            
-                        }
-                        if (indice == '3'){
-                            lista3.add(listads.get(j));
-                        
-                        }
-                         if (indice == '4'){
-                            lista4.add(listads.get(j));
-                            
-                        }
-                        if (indice == '5'){
-                            lista5.add(listads.get(j));
-                            
-                            
-                        }
-                        if (indice == '6'){
-                            lista6.add(listads.get(j));
-                            
-                        }
-                        if (indice == '7'){
-                            lista7.add(listads.get(j));
-                        
-                        }
-                         if (indice == '8'){
-                            lista8.add(listads.get(j));
-                            
-                        }
-                        if (indice == '9'){
-                            lista9.add(listads.get(j));
-                        
-                        }  
-                        
+                // El numero se almacena en su cola correspondiente 
+                if (indice == '0'){
+                    lista0.add(listads.get(j));
+                }
+                if (indice == '1'){
+                    lista1.add(listads.get(j));
+                }
+                if (indice == '2'){
+                    lista2.add(listads.get(j));
+                   }
+                if (indice == '3'){
+                    lista3.add(listads.get(j));
+                }
+                if (indice == '4'){
+                    lista4.add(listads.get(j));
+                }
+                if (indice == '5'){
+                    lista5.add(listads.get(j));
+                }
+                if (indice == '6'){
+                    lista6.add(listads.get(j));
+                }
+                if (indice == '7'){
+                    lista7.add(listads.get(j));
+                }
+                if (indice == '8'){
+                    lista8.add(listads.get(j));
+                }
+                if (indice == '9'){
+                    lista9.add(listads.get(j));
+                }  
             }//Termina de añadir los valores a la cola
             
-           // Se borran los elementos de la lista para que los elementos no se vuelvan 
-           //a escribir, y se repitan 
+            // Se borran los elementos de la lista para que los elementos no se vuelvan 
+            //a escribir, y se repitan 
            
             listads.clear();
  
@@ -164,8 +149,6 @@ public class RadixSort {
                  listads.add(lista9.get(m));
              }//Termina de vaciar cola 9
             
-            
-            
             lista0.clear();
             lista1.clear();
             lista2.clear();
@@ -177,23 +160,20 @@ public class RadixSort {
             lista8.clear();
             lista9.clear();
             
-            System.out.println("termina iteracion: "+l);
-            l++;
-        
+            System.out.println("Termina la iteracion: "+l);
+            l++; 
         }
         
         //Se imprime la lista ordenada 
-         System.out.println("\n\tOrdenamiento creado con exito: ");
+        System.out.println("\n\tOrdenamiento creado con exito: ");
         System.out.println("\tLa lista ordenada queda como: \n");
-        for(ficheros datos1: listads){
+        for(Alumno datos1: listads){
             //System.out.println("Apellido: "+ datos1.getApellido());
             //System.out.println("Nombre: "+ datos1.getNombre());
             //System.out.println("NoCuenta: "+ datos1.getNoCuenta());
             System.out.println(datos1.getApellido()+","+datos1.getNombre()+","+datos1.getNoCuenta());
-    }
-        
-     
+        }
+
         return listadatos;
     }
-    
 }
