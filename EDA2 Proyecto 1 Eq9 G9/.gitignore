@@ -1,0 +1,10 @@
+
+# Este es lo un archivo que contiene lo nombre de los archivos que se van a ignorar para cualquier cambio en el proyecto.
+
+Main.class
+Menu.class
+Util.class
+Alumno.class
+Ordenamientos.class
+Polifase.class
+RadixSort.class

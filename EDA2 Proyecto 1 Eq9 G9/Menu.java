@@ -1,15 +1,17 @@
-import java.util.Scanner;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.stream.Stream;
 
 public class Menu{
-	public static void main(String[] args){
-		// Limpia la pantalla 
-			// Opción 1
-		// try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();}catch(Exception e){}
-			// OPcioón 2
-		// final String aux= "\033[";
-		// System.out.print(aux+ "2J"); 
+	public static void main(String[] args) throws IOException{
 
+		// Instancias de apoyo para el proyecto
 		Util opcion = new Util();
+		Ordenamientos ordenamiento = new Ordenamientos();
 		System.out.println("##################################################################");
 		System.out.println("############ BIENVENIDO A LOS ORDENAMIENTOS EXTERNOS #############");
 		System.out.println("##################################################################");
@@ -27,6 +29,7 @@ public class Menu{
 					System.out.println("\n##################################################################");
 					System.out.println("#             HAS ELEGIDO ORDENAR MEDIANTE: Polifase             #");
 					System.out.println("##################################################################");
+					ordenamiento.polifase();
 				break;
 				case '2':
 					System.out.println("\n##################################################################");
