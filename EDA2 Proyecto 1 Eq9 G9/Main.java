@@ -28,19 +28,19 @@ public class Main{
 			opcion.setChar();
 			switch (opcion.getChar()){
 				case '1':
-					System.out.println("\n##################################################################");
-					System.out.println("#             HAS ELEGIDO ORDENAR MEDIANTE: Polifase             #");
+				    System.out.println("\n##################################################################");
+					System.out.println("#             HAS ELEGIDO ORDENAR MEDIANTE: Nombres              #");
 					System.out.println("##################################################################");
 					ordenamiento.polifase();
 				break;
 				case '2':
 					System.out.println("\n##################################################################");
-					System.out.println("#        HAS ELIGIDO ORDENAR MEDIANTE: Mezcla equilibrada        #");
+					System.out.println("#            HAS ELIGIDO ORDENAR MEDIANTE: Apellidos             #");
 					System.out.println("##################################################################");
 				break;
 				case '3':
 					System.out.println("\n##################################################################");
-					System.out.println("#               HAS ELIGIDO ORDENAR MEDIANTE: Radix              #");
+					System.out.println("#         HAS ELIGIDO ORDENAR MEDIANTE: Número de cuenta         #");
 					System.out.println("##################################################################");
 				break;
 				case '4':
