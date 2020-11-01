@@ -5,7 +5,7 @@ public class Menu{
 		// Limpia la pantalla 
 			// Opción 1
 		// try {new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();}catch(Exception e){}
-			// OPcioón 2 (puede tener fallos)
+			// OPcioón 2
 		// final String aux= "\033[";
 		// System.out.print(aux+ "2J"); 
 
@@ -24,32 +24,54 @@ public class Menu{
 			opcion.setChar();
 			switch (opcion.getChar()){
 				case '1':
-					System.out.println("##################################################################");
+					System.out.println("\n##################################################################");
 					System.out.println("#             HAS ELEGIDO ORDENAR MEDIANTE: Polifase             #");
 					System.out.println("##################################################################");
 				break;
 				case '2':
-					System.out.println("##################################################################");
+					System.out.println("\n##################################################################");
 					System.out.println("#        HAS ELIGIDO ORDENAR MEDIANTE: Mezcla equilibrada        #");
 					System.out.println("##################################################################");
 				break;
 				case '3':
-					System.out.println("##################################################################");
+					System.out.println("\n##################################################################");
 					System.out.println("#               HAS ELIGIDO ORDENAR MEDIANTE: Radix              #");
 					System.out.println("##################################################################");
 				break;
+				case '4':
+					opcion.exit();
+				break;
 				default:
-					System.out.printf("\n      ¡¡¡  NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.  !!!   \n > ");
+					System.out.printf("\n      ¡¡¡  NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.  !!!  ");
+					// Se asigna una opción que hará que se pueden repetir las opciones del menú nuevamente.
+					opcion.setChar('S');
+					System.out.println();
 				break;
 			}
 			if(opcion.getChar()=='1'||opcion.getChar()=='2'||opcion.getChar()=='3'){
 				System.out.printf("\n\nPor el momento ya has terminado, ¿quieres probar otro método de ordenamiento externo? (S/n) Por defecto es 'S'.\n > ");
-			}
-			opcion.setChar();
-			if((opcion.getChar()!='S')&&(opcion.getChar()!='n')){
 				opcion.setChar();
+				while(opcion.getChar()!='S'&&opcion.getChar()!='n'){
+					System.out.printf("\n¡Vaya! No has elegido ninguna opción válida, intenta otra vez.\n > ");
+					opcion.setChar();
+				}
 			}
 			System.out.println();
 		}while(opcion.getChar()=='S');
+
+		// El usuario ha decidido salir del programa.
+		System.out.println("\t-> HAS ELEGIDO SALIR");
+		System.out.println();
+		System.out.println("\t _________________________________________________");
+		System.out.println("\t| Gracias por utilizar el programa.               |");
+		System.out.println("\t|                                                 |");
+		System.out.println("\t| Colaboradores del proyecto:                     |");
+		System.out.println("\t|    -> Carrichi de la Cruz, Roberto Carlos       |");
+		System.out.println("\t|    -> Gonzalez Cuellar, Arturo                  |");
+		System.out.println("\t|    -> Miranda Bueno, Fátima Yolanda             |");
+		System.out.println("\t|                                                 |");
+		System.out.println("\t| Estudiantes de la Facultad de Ingeniería, UNAM. |");
+		System.out.println("\t|_________________________________________________|");
+		System.out.println();
 	}	
 }

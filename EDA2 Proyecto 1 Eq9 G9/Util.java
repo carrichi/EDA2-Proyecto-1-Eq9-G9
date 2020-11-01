@@ -19,10 +19,15 @@ public class Util{
 		// Validación, si no añade algo a su elección toma un valor
 		// por defecto.
 		if(aux.isEmpty()){
-			this.letra='S';
+			this.letra = 'S';
+		}else if(aux.charAt(0) == 's'){
+			this.letra = 'S';
 		}else{
 			this.letra = aux.charAt(0);
 		}
+	}
+	public void setChar(char letra){
+			this.letra = letra;
 	}
 	public char getChar(){
 		return this.letra;			
@@ -51,5 +56,10 @@ public class Util{
 	}
 	public int getInt(){
 		return this.entero;
+	}
+	public void exit(){
+		this.letra='n';
+		this.cadena="exit";
+		this.entero=-1;
 	}
 }
