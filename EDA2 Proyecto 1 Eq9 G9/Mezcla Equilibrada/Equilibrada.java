@@ -13,15 +13,25 @@ public class Equilibrada{
 	public void sortNombres(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{
 		FileWriter f1 = new FileWriter("./Auxiliar1");
 		FileWriter f2 = new FileWriter("./Auxiliar2");
-		int prioridadAnterior = -1;
+		
+			// El archivo donde se comenzará a añadir será en f1
+		int archivo = 1;
 		for(int i=0;i<alumnos.size()-1;i++){
 			Alumno alumno = alumnos.get(i);
 			Alumno siguiente = alumnos.get(i+1);
 			System.out.println("Act: "+prioridad(alumno.getNombre())+" Sig: "+prioridad(siguiente.getNombre()));
 			if(prioridad(alumno.getNombre())<=prioridad(siguiente.getNombre())){
-				System.out.println("Se añade a f1");
+				System.out.println(alumno.getNombre()+ " se añade a f"+archivo);
 			}else{
-				System.out.println("Se añade a f2");
+				System.out.println("Cambio de archivooooo.");
+				
+				// Si el anterior estado era el archivo f1
+				if(archivo==1){
+					archivo=2;
+				}else{
+					archivo=1;
+				}
+				System.out.println(alumno.getNombre()+ " se añade a f"+archivo);
 			}
 		}
 	}
