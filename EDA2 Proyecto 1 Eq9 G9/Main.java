@@ -19,6 +19,14 @@ public class Main{
 		System.out.println("##################################################################");
 		System.out.println();
 		do{
+			// Solicitar información del archivo que se quiere ordenar.
+			String ruta,nombre;
+			System.out.println("Ingrese la ruta de su archivo");
+			Scanner leer = new Scanner(System.in);
+			ruta= leer.nextLine();
+	        Path datos = Paths.get(ruta+"\\"+nombre+".txt");
+			System.out.println("Ingrese el nombre de su archivo");
+			nombre = leer.nextLine();
 			System.out.println("¿Qué tipo de ordenamiento quieres implementar?");
 			System.out.println("1. Ordenamiento por Polifase. ");
 			System.out.println("2. Ordenamiento por Mezcla equilibrada. ");

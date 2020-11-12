@@ -70,8 +70,8 @@ public class Menu{
 		System.out.println("\t|                                                 |");
 		System.out.println("\t| Colaboradores del proyecto:                     |");
 		System.out.println("\t|    -> Carrichi de la Cruz, Roberto Carlos       |");
-		System.out.println("\t|    -> Gonzalez Cuellar, Arturo                  |");
 		System.out.println("\t|    -> Miranda Bueno, Fátima Yolanda             |");
+		System.out.println("\t|    -> Páez López, Didier Marcelo                |");
 		System.out.println("\t|                                                 |");
 		System.out.println("\t| Estudiantes de la Facultad de Ingeniería, UNAM. |");
 		System.out.println("\t|_________________________________________________|");
