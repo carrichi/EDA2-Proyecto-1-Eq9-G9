@@ -19,28 +19,27 @@ public class Equilibrada{
 		for(i=0;i<alumnos.size()-1;i++){
 			Alumno anterior = alumnos.get(i);
 			Alumno alumno = alumnos.get(i+1);
-			// Alumno siguiente = alumnos.get(i+1);
 			System.out.printf("\n "+prioridad(anterior.getNombre()));
 			System.out.printf(" "+prioridad(alumno.getNombre())+"\n");
-			// System.out.printf(" "+prioridad(siguiente.getNombre())+"\n");
 			if(prioridad(anterior.getNombre())<=prioridad(alumno.getNombre())){
 				// Ya que el valor siguiente matiene un orden ascendente se guarda
 				// en el archivo que corresponde en ese momento.
 				System.out.println(anterior.getNombre()+ " se añade a f"+archivo);
-				// añadir(alumno,archivo,0);
+				añadir(anterior,archivo,0);
 			}else{
 				// Quiere decir que el alumno siguiente rompe el orden ascendente por lo que
 				// el anterior será el último alumno en agregarse al archivo antes de la
 				// interrupción.
-
 				System.out.println(anterior.getNombre()+ " se añade a f"+archivo);
-				// añadir(alumno,archivo,0);
+				añadir(anterior,archivo,0);
 
 				// Antes de hacer el cambio de archivo se imprime una interrupción en
 				// el archivo actual, para que se sepa que hubo una ruptura en el orden.
 				// El número 1 indica que fue solicitada una interrupción.
-				// añadir(alumno,archivo,1);
-				System.out.println("Se añadió una interrupción a f"+archivo);
+				if( i!=alumnos.size()-2){
+					System.out.println("Se añadió una interrupción a f"+archivo);
+					añadir(anterior,archivo,1);
+				}
 				
 				// Si el anterior estado era el archivo f1 se cambia, si no, se mantiene.
 				if(archivo==1){
@@ -55,33 +54,20 @@ public class Equilibrada{
 		// La viariable 'archivo' tiene ahora el archivo donde se AÑADIRÁ.
 		// La variable 'i' tiene actualmente el último INDICE al que se llegó.
 		
-		System.out.println("\nÚltimo índice utilizado: "+i);
-		System.out.println("\nÚltimo archivo utilizado: "+archivo);
-		Alumno ultimoUtilizado = alumnos.get(i);
 		Alumno ultimoLista = alumnos.get(alumnos.size()-1);
-		System.out.printf("\n "+prioridad(ultimoUtilizado.getNombre()));
-		System.out.printf(" "+prioridad(ultimoLista.getNombre())+"\n");
-		if(prioridad(ultimoUtilizado.getNombre())<=prioridad(ultimoLista.getNombre())){
-				System.out.println(ultimoUtilizado.getNombre()+ " se añade a f"+archivo);
-				// añadir(ultimoLista,archivo,0);
-			}else{
-				System.out.println(ultimoUtilizado.getNombre()+ " se añade a f"+archivo);
-				// añadir(ultimoLista,archivo,0);
-				System.out.println("Se añadió una interrupción a f"+archivo);
-				
-				// Si el anterior estado era el archivo f1 se cambia, si no, se mantiene.
-				if(archivo==1){
-					archivo=2;
-				}else{
-					archivo=1;
-				}
-			}
+		
+		// Dado que la referencia al archivo que le corresponde ya está guardada solo
+		// se añade a archivo correspondiente.
+		System.out.println(ultimoLista.getNombre()+ " se añade a f"+archivo);
+		añadir(ultimoLista,archivo,0);
+
 		System.out.println("TERMINÓ LA SEPARACION DE DATOS.");
 		System.out.println("Se añadió una interrupción de FIN en LOS AUXILIARES.");
+		añadir(ultimoLista,1,-1);
+		añadir(ultimoLista,2,-1);
 	}
 
 	public void añadir(Alumno alumno, int archivo, int interrupcion) throws FileNotFoundException, IOException{
-
 		File archivoFinal = new File("./FINAL.txt");
 		File auxiliar1 = new File("./Auxiliar1.txt");
 		File auxiliar2 = new File("./Auxiliar2.txt");
@@ -104,9 +90,9 @@ public class Equilibrada{
 					f1.write(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 			}else{
 				// Imprimir interrupcion en el archivo 2.
-				f2.write(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
+					f2.write(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>\n");
 			}
-		}else{
+		}else if(interrupcion == 0){
 			switch (archivo){
 				case 0:
 					f0.write(nombre+", "+apellido+ ", " +cuenta+"\n");
@@ -117,6 +103,19 @@ public class Equilibrada{
 				case 2:
 					// Se añadirá el alumno al archivo auxiliar 2.
 					f2.write(nombre+", "+apellido+ ", " +cuenta+"\n");
+				break;
+			}
+		}else{
+			switch (archivo){
+				case 0:
+					f0.write("/////////////////////////////////////////\n");
+				case 1:
+					// Se añadirá el alumno al archivo auxiliar 1.
+					f1.write("/////////////////////////////////////////\n");
+				break;
+				case 2:
+					// Se añadirá el alumno al archivo auxiliar 2.
+					f2.write("/////////////////////////////////////////\n");
 				break;
 			}
 		}
