@@ -15,11 +15,10 @@ public class Equilibrada{
 	public void sortNombres(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{
 		// El archivo donde se comenzará a añadir será en f1
 		int archivo = 1;
-		int contador=0;
-		for(int i=1;i<alumnos.size();i++){
-			contador+=1;
-			Alumno anterior = alumnos.get(i-1);
-			Alumno alumno = alumnos.get(i);
+		int i;
+		for(i=0;i<alumnos.size()-1;i++){
+			Alumno anterior = alumnos.get(i);
+			Alumno alumno = alumnos.get(i+1);
 			// Alumno siguiente = alumnos.get(i+1);
 			System.out.printf("\n "+prioridad(anterior.getNombre()));
 			System.out.printf(" "+prioridad(alumno.getNombre())+"\n");
@@ -27,14 +26,14 @@ public class Equilibrada{
 			if(prioridad(anterior.getNombre())<=prioridad(alumno.getNombre())){
 				// Ya que el valor siguiente matiene un orden ascendente se guarda
 				// en el archivo que corresponde en ese momento.
-				System.out.println(prioridad(anterior.getNombre())+ " se añade a f"+archivo);
+				System.out.println(anterior.getNombre()+ " se añade a f"+archivo);
 				// añadir(alumno,archivo,0);
 			}else{
 				// Quiere decir que el alumno siguiente rompe el orden ascendente por lo que
 				// el anterior será el último alumno en agregarse al archivo antes de la
 				// interrupción.
 
-				System.out.println(prioridad(anterior.getNombre())+ " se añade a f"+archivo);
+				System.out.println(anterior.getNombre()+ " se añade a f"+archivo);
 				// añadir(alumno,archivo,0);
 
 				// Antes de hacer el cambio de archivo se imprime una interrupción en
@@ -51,6 +50,32 @@ public class Equilibrada{
 				}
 			}
 		}
+
+		// EL CICLO TERMINARÁ Y FALTARÁ UNA ITERACIÓN
+		// La viariable 'archivo' tiene ahora el archivo donde se AÑADIRÁ.
+		// La variable 'i' tiene actualmente el último INDICE al que se llegó.
+		
+		System.out.println("\nÚltimo índice utilizado: "+i);
+		System.out.println("\nÚltimo archivo utilizado: "+archivo);
+		Alumno ultimoUtilizado = alumnos.get(i);
+		Alumno ultimoLista = alumnos.get(alumnos.size()-1);
+		System.out.printf("\n "+prioridad(ultimoUtilizado.getNombre()));
+		System.out.printf(" "+prioridad(ultimoLista.getNombre())+"\n");
+		if(prioridad(ultimoUtilizado.getNombre())<=prioridad(ultimoLista.getNombre())){
+				System.out.println(ultimoUtilizado.getNombre()+ " se añade a f"+archivo);
+				// añadir(ultimoLista,archivo,0);
+			}else{
+				System.out.println(ultimoUtilizado.getNombre()+ " se añade a f"+archivo);
+				// añadir(ultimoLista,archivo,0);
+				System.out.println("Se añadió una interrupción a f"+archivo);
+				
+				// Si el anterior estado era el archivo f1 se cambia, si no, se mantiene.
+				if(archivo==1){
+					archivo=2;
+				}else{
+					archivo=1;
+				}
+			}
 		System.out.println("TERMINÓ LA SEPARACION DE DATOS.");
 		System.out.println("Se añadió una interrupción de FIN en LOS AUXILIARES.");
 	}
