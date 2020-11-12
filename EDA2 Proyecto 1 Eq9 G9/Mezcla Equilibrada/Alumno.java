@@ -5,7 +5,6 @@ public class Alumno {
     private String noCuenta;
     
     public Alumno( String nombre, String apellido, String noCuenta){
-    
         this.nombre = nombre;
         this.apellido = apellido;
         this.noCuenta = noCuenta;
@@ -15,7 +14,7 @@ public class Alumno {
      * @return the nombre
      */
     public String getNombre() {
-        return nombre;
+        return this.nombre;
     }
 
     /**
@@ -29,7 +28,7 @@ public class Alumno {
      * @return the apellido
      */
     public String getApellido() {
-        return apellido;
+        return this.apellido;
     }
 
     /**
@@ -43,7 +42,7 @@ public class Alumno {
      * @return the noCuenta
      */
     public String getNoCuenta() {
-        return noCuenta;
+        return this.noCuenta;
     }
 
     /**
