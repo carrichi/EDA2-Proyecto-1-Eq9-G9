@@ -32,10 +32,10 @@ public class Polifase{
 			FileWriter iteraciones;
 			if(opc==1){
 				iteraciones=new FileWriter("./iteracionesPolifase_Apellido_"+nombre+".txt");
-				System.out.println("\n\t\t\t****FIN****\n\nLas iteraciones se encuantran en la carpeta actual, en el archivo: \n\titeracionesPolifase_Apellido_"+nombre+".txt");
+				System.out.println("\n\t\t\t****FIN****\n\nLas iteraciones se encuentran en la carpeta actual, en el archivo: \n\titeracionesPolifase_Apellido_"+nombre+".txt");
 			}else if(opc==2){
 				iteraciones=new FileWriter("./iteracionesPolifase_Nombre_"+nombre+".txt");
-				System.out.println("\n\t\t\t****FIN****\n\nLas iteraciones se encuantran en la carpeta actual, en el archivo: \n\titeracionesPolifase_Nombre_"+nombre+".txt");
+				System.out.println("\n\t\t\t****FIN****\n\nLas iteraciones se encuentran en la carpeta actual, en el archivo: \n\titeracionesPolifase_Nombre_"+nombre+".txt");
 				}else
 					iteraciones=new FileWriter("./ERROR.txt");
 			f0=listadatos;
