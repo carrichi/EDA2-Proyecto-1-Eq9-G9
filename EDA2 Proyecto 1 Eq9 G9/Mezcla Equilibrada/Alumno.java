@@ -51,5 +51,7 @@ public class Alumno {
     public void setNoCuenta(String noCuenta) {
         this.noCuenta = noCuenta;
     }
-  
+    public void info(){
+        System.out.println("Nombre: "+this.getNombre()+" Apellido: "+this.getApellido()+" Num: "+this.getNoCuenta());
+    }  
 }
