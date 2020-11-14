@@ -1,9 +1,7 @@
 
 // Bibliotecas de apoyo
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.io.FileWriter;
-import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -14,13 +12,13 @@ public class Polifase{
 		
 		// Arreglo que almacena de forma temporal los bloques de n=7 
 		// y los ordena con un Algoritmo de Ordenamiento Interno
-		ArrayList<Alumno> AOI = new ArrayList<Alumno>(); 
+		ArrayList<Alumno> AOI = new ArrayList<>(); 
 		
 		// Los archivos auxiliares seran listas
-		ArrayList<Alumno> f0 = new ArrayList<Alumno>(); 
-		ArrayList<Alumno> f1 = new ArrayList<Alumno>(); 
-		ArrayList<Alumno> f2 = new ArrayList<Alumno>(); 
-		ArrayList<Alumno> f3 = new ArrayList<Alumno>();
+		ArrayList<Alumno> f0 = new ArrayList<>(); 
+		ArrayList<Alumno> f1 = new ArrayList<>(); 
+		ArrayList<Alumno> f2 = new ArrayList<>(); 
+		ArrayList<Alumno> f3 = new ArrayList<>();
 		Scanner scan=new Scanner(System.in);
 		
 		try{
@@ -45,7 +43,7 @@ public class Polifase{
 		  //******FASE 1*****
 		  //leer archivo original "f0", y dividir en bloques de n=7, ordenar cada bloque y colocar uno a uno en f1 y f2
 			while(f0.isEmpty()!=true){
-				insertionSort(f0,AOI,n);
+				insertionSort(f0,AOI,n,opc);
 				iteraciones.write("F1\n");
 				// colocar bloque ordenado en lista f1
 				for(Alumno alu:AOI){
@@ -53,7 +51,7 @@ public class Polifase{
 					iteraciones.write(alu.getNombre()+", "+alu.getApellido()+", "+alu.getNoCuenta()+"\n");
 				}
 				AOI.clear();
-				insertionSort(f0,AOI,n);
+				insertionSort(f0,AOI,n,opc);
 				iteraciones.write("F2\n");
 				for(Alumno alu:AOI){
 					f2.add(alu);
@@ -75,10 +73,10 @@ public class Polifase{
 				iteraciones.write("\nF1-F2 --> F0-F3\n");
 				// pasae a f0 y f3 claves de f1 y f2
 				while(f1.isEmpty()!=true||f2.isEmpty()!=true){
-					faseDos(f0,f1,f2,n);
+					faseDos(f0,f1,f2,n,opc);
 					iteraciones.write("\nF0\n");
 					imprimirDocumento(f0,iteraciones);
-					faseDos(f3,f1,f2,n);
+					faseDos(f3,f1,f2,n,opc);
 					iteraciones.write("\nF3\n");
 					imprimirDocumento(f3,iteraciones);
 				}
@@ -86,10 +84,10 @@ public class Polifase{
 				iteraciones.write("\nF0-F3 --> F1-F2\n");
 				//pasar a f1 y f2 de f0 y f3
 				while(f0.isEmpty()!=true||f3.isEmpty()!=true){
-					faseDos(f1,f0,f3,n);
+					faseDos(f1,f0,f3,n,opc);
 					iteraciones.write("\nF1\n");
 					imprimirDocumento(f1,iteraciones);
-					faseDos(f2,f0,f3,n);
+					faseDos(f2,f0,f3,n,opc);
 					iteraciones.write("\nF2\n");
 					imprimirDocumento(f2,iteraciones);
 				}
@@ -127,23 +125,30 @@ public class Polifase{
 	}
 	
 	// f lista por vaciar, AOI bloque a ordenar, n tamaño del bloque
-	void insertionSort(ArrayList<Alumno> f,ArrayList<Alumno> AOI,int n){
+	void insertionSort(ArrayList<Alumno> f,ArrayList<Alumno> AOI,int n,int opc){
 		Alumno index;
 		int k,i=0;
 		while(f.isEmpty()!=true&&i<n){
 			AOI.add(f.remove(0));
 			index=AOI.get(i);
 			k=i-1;
-			while(k>-1&&(AOI.get(k).getNombre().compareTo(index.getNombre()))>0){
+                        if(opc==1){
+                            while(k>-1&&(AOI.get(k).getApellido().compareTo(index.getApellido()))>0){
 				AOI.set(k+1,AOI.get(k));
 				k--;
+                            }
+                        }else{
+                            while(k>-1&&(AOI.get(k).getNombre().compareTo(index.getNombre()))>0){
+				AOI.set(k+1,AOI.get(k));
+				k--;
+                            }
 			}
 			AOI.set(k+1,index);
 			i++;
 		}
 	}	
 	// f -> lista donde se colocarán los bloques, fl y fr listas con claves (n tamaño del bloque)
-	void faseDos(ArrayList<Alumno> f,ArrayList<Alumno> fl,ArrayList<Alumno> fr,int n){
+	void faseDos(ArrayList<Alumno> f,ArrayList<Alumno> fl,ArrayList<Alumno> fr,int n,int opc){
 		// cantidades de veces que se añadieron claves a cada lista
 		int i=0,j=0;
 		// no añadir mas de n claves por lista           
@@ -154,13 +159,23 @@ public class Polifase{
 				Alumno Fl=fl.get(0);
 				Alumno Fr=fr.get(0);
 				// si >0 ent fr(0) va antes que fl(0), <0 fl(0) va antes
-				if(Fl.getNombre().compareTo(Fr.getNombre())>0){
+                                if(opc==1){
+                                    if(Fl.getApellido().compareTo(Fr.getApellido())>0){
 					f.add(fr.remove(0));
 					j++;
-				}else{
-					f.add(fl.remove(0));
-					i++;
-				}
+                                    }else{
+                                    	f.add(fl.remove(0));
+                                    	i++;
+                                    }
+                                }else{
+                                    if(Fl.getApellido().compareTo(Fr.getApellido())>0){
+					f.add(fr.remove(0));
+					j++;
+                                    }else{
+                                    	f.add(fl.remove(0));
+                                    	i++;
+                                    }
+                                }
 			// cuando alguna lista ya tiene sus n claves o esta vacia
 			// la otra se vacia (ya sin comparar las claves con la otra lista)
 			}else if((fl.isEmpty()==true)||(i>=n)){
@@ -183,3 +198,4 @@ public class Polifase{
 		}
 	}
 }
+
