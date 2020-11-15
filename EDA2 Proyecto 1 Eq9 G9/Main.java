@@ -40,7 +40,7 @@ public class Main{
 				    System.out.println("\n##################################################################");
 					System.out.println("#             HAS ELEGIDO ORDENAR MEDIANTE: Nombres              #");
 					System.out.println("##################################################################");
-					ordenamiento.polifase();
+					ordenamiento.polifase(datos,nombre);
 				break;
 				case '2':
 					System.out.println("\n##################################################################");
