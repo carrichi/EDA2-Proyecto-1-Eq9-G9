@@ -44,10 +44,10 @@ public class Ordenamientos{
         return listadatos;
 	}
 
-	public void polifase() throws IOException{
+	public void polifase(String nombre, char opcion) throws IOException{
 		ArrayList<Alumno> listadatos = datos(this.ruta);
-	    Polifase polifase = new Polifase();
-		polifase.sort(listadatos);
+	        Polifase polifase = new Polifase();
+		polifase.sort(listadatos,nombre,opcion);
 	}
 	public void radixSort() throws IOException{
 		ArrayList<Alumno> listadatos = datos(this.ruta);
