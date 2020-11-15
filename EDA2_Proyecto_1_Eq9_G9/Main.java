@@ -1,11 +1,7 @@
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.Files;
 import java.io.File;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.stream.Stream;
 import java.util.Scanner;
 
 public class Main{
@@ -71,11 +67,11 @@ public class Main{
 						opcion.setInt();
 						switch (opcion.getInt()) {
 							case 1:
-								System.out.println("Comenzó Polifase POR NOMBRES");
+								System.out.println("");
 								ordenamiento.polifase(nombre,'1');
 							break;
 							case 2:
-								System.out.println("Comenzó Mezcla equilibrada POR NOMBRES");
+								System.out.println("");
 								ordenamiento.mezclaEquilibrada(nombre,1);
 							break;
 						}
@@ -88,11 +84,11 @@ public class Main{
 						opcion.setInt();
 						switch (opcion.getInt()) {
 							case 1:
-								System.out.println("Comenzó Polifase POR APELLIDOS");
+								System.out.println("");
 								ordenamiento.polifase(nombre,'2');
 								break;
 							case 2:
-								System.out.println("Comenzó Mezcla equilibrada POR APELLIDOS");
+								System.out.println("");
 								ordenamiento.mezclaEquilibrada(nombre,2);
 							break;
 						}
@@ -116,10 +112,10 @@ public class Main{
 				}
 			}
 			if(opcion.getChar()=='1'||opcion.getChar()=='2'||opcion.getChar()=='3'){
-				System.out.printf("\n\nPor el momento ya has terminado, ¿quieres probar otro método de ordenamiento externo? ("+amarillo+"S"+blanco+"/n)\n > ");
+				System.out.printf("\n\n"+blanco+"Por el momento ya has terminado, ¿quieres probar otro método de ordenamiento externo? ("+amarillo+"S"+blanco+"/n)\n > ");
 				opcion.setChar();
 				while(opcion.getChar()!='S'&&opcion.getChar()!='n'){
-					System.out.printf("\n¡Vaya! No has elegido ninguna opción válida, intenta otra vez.\n > ");
+					System.out.printf("\n"+amarillo+"¡Vaya! "+blanco+"No has elegido ninguna opción válida, intenta otra vez.\n > ");
 					opcion.setChar();
 				}
 			}

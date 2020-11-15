@@ -1,21 +1,16 @@
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.ArrayList;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.stream.Stream;
 
 public class MezclaEquilibrada{
-	String nombreArchivo;
+	
+	private String nombreArchivo;
+	private String orden;
 
 	public MezclaEquilibrada(String nombreArchivo){
 		// Se recibirá siempre el nombre del archivo, para generar archivos
@@ -23,12 +18,18 @@ public class MezclaEquilibrada{
 		this.nombreArchivo = nombreArchivo;
 	}
 
+	// Setter para que se reconozca el tipo de orden que tendrá
+	// esta ejecución.
+	public void setOrden(String orden){
+		this.orden=orden;
+	}
+
 	public void sortNombres(ArrayList<Alumno> alumnos,int inicioF1, int inicioF2, int inicioFinal) throws FileNotFoundException, IOException{
 		// Primero se verificará si están ordenados los datos que llegaron.
 		if(verificar(alumnos,1)){
 			System.out.println("¡Ya está ordenada!");
 		}else{
-			System.out.println("No está ordenada, se intentará de nuevo.");
+			// System.out.println("No está ordenada, se intentará de nuevo.");
 			separarArchivo(alumnos,1);
 			int[] finales = mezclarArchivo(inicioF1,inicioF2,1);
 
@@ -43,9 +44,13 @@ public class MezclaEquilibrada{
 	    	// Ya que se ha eliminado el elemento que no pertenece a la línea original,
 	    	// se procede a verificar.
 	    	if(verificar(nuevaListaAlumnos,1)){
-	    		System.out.println("¡Ya se ordenó!");
+	    		System.out.println("\t \033[1m\033[1;34m¡Ya se ordenó!\033[1;36m");
+    			System.out.println("Los archivos que deberás revisar son los siguientes:");
+				System.out.println("\033[0;35m-> \033[1;36mME_Auxiliar1_"+this.nombreArchivo+"_"+this.orden+".txt");
+				System.out.println("\033[0;35m-> \033[1;36mME_Auxiliar2_"+this.nombreArchivo+"_"+this.orden+".txt");
+				System.out.println("\033[0;35m-> \033[4;1m\033[38;5;11mME_FINAL_"+this.nombreArchivo+"_"+this.orden+".txt\033[0m");
 	    	}else{
-	    		System.out.println("Aún no se ordena, lo intentaremos de nuevo.):");
+	    		// System.out.println("Aún no se ordena, lo intentaremos de nuevo.):");
 				// Se convierte la última referencia del archivo final en un entero
 				int ultimaInt = Integer.parseInt(ultima.getNoCuenta());
 				sortNombres(nuevaListaAlumnos,finales[0],finales[1],ultimaInt);
@@ -58,7 +63,7 @@ public class MezclaEquilibrada{
 		if(verificar(alumnos,2)){
 			System.out.println("¡Ya está ordenada!");
 		}else{
-			System.out.println("No está ordenada, se intentará de nuevo.");
+			// System.out.println("No está ordenada, se intentará de nuevo.");
 			separarArchivo(alumnos,2);
 			int[] finales = mezclarArchivo(inicioF1,inicioF2,2);
 
@@ -73,9 +78,13 @@ public class MezclaEquilibrada{
 	    	// Ya que se ha eliminado el elemento que no pertenece a la línea original,
 	    	// se procede a verificar.
 	    	if(verificar(nuevaListaAlumnos,2)){
-	    		System.out.println("¡Ya se ordenó!");
+	    		System.out.println("\t \033[1m\033[1;34m¡Ya se ordenó!\033[1;36m");
+	    		System.out.println("Los archivos que deberás revisar son los siguientes:");
+				System.out.println("\033[0;35m-> \033[1;36mME_Auxiliar1_"+this.nombreArchivo+"_"+this.orden+".txt");
+				System.out.println("\033[0;35m-> \033[1;36mME_Auxiliar2_"+this.nombreArchivo+"_"+this.orden+".txt");
+				System.out.println("\033[0;35m-> \033[4;1m\033[38;5;11mME_FINAL_"+this.nombreArchivo+"_"+this.orden+".txt\033[0m");
 	    	}else{
-	    		System.out.println("Aún no se ordena, lo intentaremos de nuevo.):");
+	    		// System.out.println("Aún no se ordena, lo intentaremos de nuevo.):");
 				// Se convierte la última referencia del archivo final en un entero
 				int ultimaInt = Integer.parseInt(ultima.getNoCuenta());
 				sortApellidos(nuevaListaAlumnos,finales[0],finales[1],ultimaInt);
@@ -95,8 +104,8 @@ public class MezclaEquilibrada{
 
 	    // Guardamos todo el contenido del archivo en el buffer del primer archivo
 	    // auxiliar.
-        BufferedReader f1 = new BufferedReader(new FileReader("./ME_Auxiliar1_"+this.nombreArchivo+".txt"));
-        BufferedReader f2 = new BufferedReader(new FileReader("./ME_Auxiliar2_"+this.nombreArchivo+".txt"));
+        BufferedReader f1 = new BufferedReader(new FileReader("./ME_Auxiliar1_"+this.nombreArchivo+"_"+this.orden+".txt"));
+        BufferedReader f2 = new BufferedReader(new FileReader("./ME_Auxiliar2_"+this.nombreArchivo+"_"+this.orden+".txt"));
         
         // Se LA PRIMERA LÍNEA de cada archivo.
         String contenidoA1 = f1.readLine();
@@ -366,9 +375,9 @@ public class MezclaEquilibrada{
 		// 0 -> No solicita interrupción, todo continúa con normalidad.
 		// 1 -> Solicita una interrupción normal >>>>>>>>
 		// 2 -> Solicita una interrupción de FIN DE ITERACIÓN. //////
-		File archivoFinal = new File("./ME_FINAL_"+this.nombreArchivo+".txt");
-		File auxiliar1 = new File("./ME_Auxiliar1_"+this.nombreArchivo+".txt");
-		File auxiliar2 = new File("./ME_Auxiliar2_"+this.nombreArchivo+".txt");
+		File archivoFinal = new File("./ME_FINAL_"+this.nombreArchivo+"_"+this.orden+".txt");
+		File auxiliar1 = new File("./ME_Auxiliar1_"+this.nombreArchivo+"_"+this.orden+".txt");
+		File auxiliar2 = new File("./ME_Auxiliar2_"+this.nombreArchivo+"_"+this.orden+".txt");
 		FileWriter f0 = new FileWriter(archivoFinal,true);
 		FileWriter f1 = new FileWriter(auxiliar1,true);
 		FileWriter f2 = new FileWriter(auxiliar2,true);
@@ -447,12 +456,8 @@ public class MezclaEquilibrada{
 				char aux = minusculas[i];
 				if(letra == aux){
 					// Si el usuario quiere organizarlo por nombres, importa que sean
-					// mayústulas, por lo que si se toman en cuenta.
-					if(modo == 1){
-						return i+26;
-					}else{
+					// mayúsculas, por lo que si se toman en cuenta.
 						return i;
-					}
 				}
 
 			}
@@ -465,19 +470,19 @@ public class MezclaEquilibrada{
 					// de su vocal.
 					switch (letra){
 						case 'á':
-							i=0+26;
+							i=0;
 						break;
 						case 'é':
-							i=4+26;
+							i=4;
 						break;
 						case 'í':
-							i=8+26;
+							i=8;
 						break;
 						case 'ó':
-							i=15+26;
+							i=15;
 						break;
 						case 'ú':
-							i=21+26;
+							i=21;
 						break;
 						case 'Á':
 							i=0;
@@ -514,7 +519,7 @@ public class MezclaEquilibrada{
 		ArrayList<Alumno> nueva = new ArrayList<>();
 
 		// Se abre el archivo donde tiene el NUEVO ORDEN DE LOS DATOS.
-		File archivoFinal = new File("./ME_FINAL_"+this.nombreArchivo+".txt");
+		File archivoFinal = new File("./ME_FINAL_"+this.nombreArchivo+"_"+this.orden+".txt");
         FileReader contenidoFinal = new FileReader(archivoFinal);
         
         // Se requiere pasar el contenido al buffer para que pueda leerse 

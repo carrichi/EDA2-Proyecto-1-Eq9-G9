@@ -64,6 +64,9 @@ public class Ordenamientos{
 		MezclaEquilibrada mezcla = new MezclaEquilibrada(nombreArchivo);
 		switch (modo) {
 			case 1:
+				// Antes de ordenar, se debe indicar que se quiere
+				// ordenar por nombres. 
+				mezcla.setOrden("Nombres");
 				mezcla.sortNombres(listadatos,0,0,0);
 			/*						    ^     ^ ^ ^ 
 										|     | | |	
@@ -74,6 +77,7 @@ public class Ordenamientos{
 			*/
 			break;
 			case 2:
+				mezcla.setOrden("Apellidos");
 				mezcla.sortApellidos(listadatos,0,0,0);
 			break;
 		}
