@@ -12,8 +12,20 @@ import java.io.BufferedReader;
 import java.util.stream.Stream;
 
 public class Ordenamientos{
-	public ArrayList<Alumno> datos() throws IOException{	
-	    ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
+	public ArrayList<Alumno> datos(Path datosP) throws IOException{	
+		
+	ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
+		
+	BufferedReader brDatos=Files.newBufferedReader(datosP);
+	Stream <String> lineasDatos = brDatos.lines();
+	Stream <String> datosAlumnos = brDatos.lines();
+        
+        datosAlumnos.forEach(l -> {
+            String[] linea = l.split("\\,");
+            Alumno alumno = new Alumno(linea[0], linea[1], linea[2]);
+            listadatos.add(alumno);
+        });
+	 /*   ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
 
 		// Indicar dirección de datos dada su ruta relativa.     
         Path datos = Paths.get("./claves.txt");
@@ -32,15 +44,15 @@ public class Ordenamientos{
             String[] linea = l.split("\\,");
             Alumno alumno = new Alumno(linea[0], linea[1], linea[2]);
             listadatos.add(alumno);
-        });
+        });*/
 
         return listadatos;
 	}
 
-	public void polifase() throws IOException{
-		ArrayList<Alumno> listadatos = datos();
-	    Polifase polifase = new Polifase();
-		polifase.sort(listadatos);
+	public void polifase(Path datosP,String nombre) throws IOException{
+		ArrayList<Alumno> listadatos = datos(datosP);
+	    	Polifase polifase = new Polifase();
+		polifase.sort(listadatos,nombre);
 	}
 	public void radixSort() throws IOException{
 		ArrayList<Alumno> listadatos = datos();
