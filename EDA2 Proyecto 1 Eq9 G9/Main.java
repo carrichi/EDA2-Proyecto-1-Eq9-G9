@@ -24,8 +24,9 @@ public class Main{
 			System.out.println("Ingrese la ruta de su archivo");
 			Scanner leer = new Scanner(System.in);
 			ruta= leer.nextLine();
-	        Path datos = Paths.get(ruta+"\\"+nombre+".txt");
+	        
 			System.out.println("Ingrese el nombre de su archivo");
+			Path datos = Paths.get(ruta+"\\"+nombre+".txt");
 			nombre = leer.nextLine();
 			System.out.println("¿Qué tipo de ordenamiento quieres implementar?");
 			System.out.println("1. Ordenamiento por Polifase. ");

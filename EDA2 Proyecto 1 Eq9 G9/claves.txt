@@ -110,7 +110,7 @@ Javier, Cárdenas Baena, 139682
 Consuelo, Martinez de La torre, 515334 
 Lucas, Castañeda Naranjo, 296992
 Iker, Narvaez Bello, 819493
-Adam,  Holgado Castañeda, 343874
+Adam, Holgado Castañeda, 343874
 Alvaro, Cañizares Centeno, 157274
 Sabela, Mejia Mayor, 376141
 Ryan, González Montes, 655331
