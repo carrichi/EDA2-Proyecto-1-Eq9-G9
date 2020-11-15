@@ -20,6 +20,7 @@ public class minimain{
 
 		// Indicar dirección de datos dada su ruta relativa.     
         Path datos = Paths.get("./claves.txt");
+        // Path datos = Paths.get("./claves.txt");
         BufferedReader brDatos = Files.newBufferedReader(datos);
         
         // Obtenermos los datos guardados en el buffer

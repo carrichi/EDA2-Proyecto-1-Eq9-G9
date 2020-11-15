@@ -38,7 +38,7 @@ public class Equilibrada{
 	    	if(verificar(nuevaListaAlumnos)){
 	    		System.out.println("¡Ya se ordenó!");
 	    	}else{
-	    		System.out.println("Aún no se ordena.):");
+	    		System.out.println("Aún no se ordena, lo intentaremos de nuevo.):");
 				// Se convierte la última referencia del archivo final en un entero
 				int ultimaInt = Integer.parseInt(ultima.getNoCuenta());
 				sortNombres(nuevaListaAlumnos,finales[0],finales[1],ultimaInt);
@@ -55,6 +55,7 @@ public class Equilibrada{
 		/***************************************************************************/
   		int inicioF1=inicio1;
   		int inicioF2=inicio2;
+
 	    // Guardamos todo el contenido del archivo en el buffer del primer archivo
 	    // auxiliar.
         BufferedReader f1 = new BufferedReader(new FileReader("./Auxiliar1.txt"));
@@ -63,6 +64,7 @@ public class Equilibrada{
         // Se LA PRIMERA LÍNEA de cada archivo.
         String contenidoA1 = f1.readLine();
         String contenidoA2 = f2.readLine();
+
         if(inicioF1!=0){
         	for (int i=1;i<=inicioF1;i++ ) {
 				contenidoA1 = f1.readLine();
@@ -70,12 +72,14 @@ public class Equilibrada{
         }
         if(inicioF2!=0){
 	        for (int i=1;i<=inicioF2;i++ ) {
-				contenidoA1 = f2.readLine();
+				contenidoA2 = f2.readLine();
 	    	}
         }
+        
+        // Las líneas de los archivos ya se acomodaron a donde deben comenzar.
 
+        // Se recorrerá el archivo auxiliar 2 hasta que encuentre el final de iteración.
         while (contenidoA2.charAt(0) != '/'){
-	        
        		// Se crearán dos listas que guardarán temporalmente los datos hasta que 
        		// se encuentren con una interrupción. 
        	    ArrayList<Alumno> listaf1 = new ArrayList<>();
@@ -84,39 +88,37 @@ public class Equilibrada{
 	        // Esta es la lista que almacenará el contenido de las otras dos listas
 	        // para que después esta se ordene.
 	        ArrayList<Alumno> listaf0 = new ArrayList<>();
-
-        	// Llenar la lista 1 hasta que encuentre una interrupción.
-	        if(contenidoA1.charAt(0) == '>'||contenidoA1.charAt(0) == '/'){
-	        	// Si la última línea que leyó es una interrupción, pasa a 
-	        	// la segunda línea
+	        if(contenidoA1.charAt(0) == '>'){
 	        	contenidoA1=f1.readLine();
 				inicioF1+=1;
-	        }else{
-	        	// Si la ínea no es una interrupción, se guardará en la lista 1
-	        	// los datos de los alumnos hasta que encuentre la siguiete interrupción
-	        	// o el final del archivo.
+	        }
+        	// Si la ínea no es una interrupción, se guardará en la lista 1
+        	// los datos de los alumnos hasta que encuentre la siguiete interrupción
+        	// o el final del archivo.
+	        if(contenidoA1.charAt(0) != '/'){
 	        	do{
-	        		String[] datos = contenidoA1.split(",");
-	        		listaf1.add(new Alumno(datos[0],datos[1],datos[2]));
-		        	contenidoA1 = f1.readLine();
+		        	String[] datos = contenidoA1.split(",");
+		        	listaf1.add(new Alumno(datos[0],datos[1],datos[2]));
+			        contenidoA1 = f1.readLine();
 					inicioF1+=1;
 		        }while (contenidoA1.charAt(0) != '>' && contenidoA1.charAt(0) != '/');
+				// Los datos añadidos a la lista 1 se añadirán a la lista que contenga todos.
+				for (Alumno alumno : listaf1) {
+				  	listaf0.add(alumno);
+				}
+			}
 
-		        // Los datos añadidos se añadirán a la lista que contenga todos.
-		        for (Alumno alumno : listaf1) {
-		        	listaf0.add(alumno);
-		        }
-	        }
-	        if(contenidoA2.charAt(0) == '>'||contenidoA2.charAt(0) == '/'){
+	        if(contenidoA2.charAt(0) == '>'){
 	        	contenidoA2=f2.readLine();
 				inicioF2+=1;
-	        }else{
+	        }
+	        if(contenidoA2.charAt(0) != '/'){
 	        	do{
 	        		String[] datos = contenidoA2.split(",");
 	        		listaf2.add(new Alumno(datos[0],datos[1],datos[2]));
 		        	contenidoA2 = f2.readLine();
 					inicioF2+=1;
-		        }while (contenidoA2.charAt(0) != '>' && contenidoA2.charAt(0) != '/');
+		    	}while (contenidoA2.charAt(0) != '>' && contenidoA2.charAt(0) != '/');
 		        for (Alumno alumno : listaf2) {
 		        	listaf0.add(alumno);
 		        }
@@ -125,7 +127,6 @@ public class Equilibrada{
 	        if( ! listaf0.isEmpty() ){
 		        // Ya que fueron agregados elementos se deben ordenar y después
 		        // añadir al archivo inicial (que en este caso será FINAL.txt)
-
 		        ArrayList<Alumno> listaOrdenada = ordenar(listaf0);
 		        
 		        for (Alumno alumno : listaOrdenada) {
@@ -156,14 +157,15 @@ public class Equilibrada{
         	// SIGUIENTE LÍNEA, por lo tanto, se debe leer la siguiente.
         	contenidoA1 = f1.readLine();
 			inicioF1+=1;
-        	if( contenidoA1.charAt(0)!='/') {
-		        String[] datos = contenidoA1.split(",");
-		        añadir(new Alumno(datos[0],datos[1],datos[2]),0,0);
-		        // La última línea del archivo, será hasta ahorita la siguiente.
-		        contenidoA1 = f1.readLine();    		
-				inicioF1+=1;
-        	}
+		}
+		if(contenidoA1.charAt(0)!='/'){
+		    String[] datos = contenidoA1.split(",");
+		    añadir(new Alumno(datos[0],datos[1],datos[2]),0,0);
+		    // La última línea del archivo, será hasta ahorita la siguiente.
+		    contenidoA1 = f1.readLine();    		
+			inicioF1+=1;
         }
+
 		// Se añade una interrupción de FINAL DE ITERACIÓN AL ARCHIVO FINAL.
 		añadir(new Alumno("Final","Final","final"),0,-1);
 		
@@ -355,8 +357,9 @@ public class Equilibrada{
 		try{
 			// La prioridad de elección se realizará mediante el primer caracter del nombre
 			// y se devolverá el índice, entre menor sea el índice, hay mayor prioridad.
-			char mayusculas[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-			char minusculas[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+			char mayusculas[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+			char minusculas[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'};
+			char acentos[]={'á','é','í','ó','ú'};
 			char letra = cadena.charAt(indice);
 			for(int i=0;i<mayusculas.length;i++){
 				char aux = mayusculas[i];
@@ -370,8 +373,39 @@ public class Equilibrada{
 				if(letra == aux){
 					// La prioridad será siempre menor a las mayúsculas.
 					return i+26;
-				}				
+				}
+
 			}
+			// Si llega aquí es que se trata de una letra con acento, estas deben
+			// la mismas prioridades que una vocal normal.
+			for (int i=0;i<acentos.length;i++) {
+				char aux = acentos[i];
+				if(letra == aux){
+					// Si se encuentra una vocal con acento, su prioridad dependerá
+					// de su vocal.
+					switch (letra){
+						case 'á':
+							i=0;
+						break;
+						case 'é':
+							i=4;
+						break;
+						case 'í':
+							i=8;
+						break;
+						case 'ó':
+							i=15;
+						break;
+						case 'ú':
+							i=21;
+						break;
+					}
+					return i+26;
+				}
+
+			}
+			// Solo llegaría aquí si no se encontró, por lo que sería un un caractér
+			// fuera del abecedario.
 			return 0;
 		}catch(StringIndexOutOfBoundsException excepcion){
 			// Si llega a tratar de buscarse fuera de la cadena...
