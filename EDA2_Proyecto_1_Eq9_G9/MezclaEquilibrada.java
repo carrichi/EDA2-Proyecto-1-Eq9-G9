@@ -15,7 +15,14 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 
 public class MezclaEquilibrada{
-	
+	String nombreArchivo;
+
+	public MezclaEquilibrada(String nombreArchivo){
+		// Se recibirá siempre el nombre del archivo, para generar archivos
+		// que no generen conflictos entre distintas ejecuciones.
+		this.nombreArchivo = nombreArchivo;
+	}
+
 	public void sortNombres(ArrayList<Alumno> alumnos,int inicioF1, int inicioF2, int inicioFinal) throws FileNotFoundException, IOException{
 		// Primero se verificará si están ordenados los datos que llegaron.
 		if(verificar(alumnos,1)){
@@ -88,8 +95,8 @@ public class MezclaEquilibrada{
 
 	    // Guardamos todo el contenido del archivo en el buffer del primer archivo
 	    // auxiliar.
-        BufferedReader f1 = new BufferedReader(new FileReader("./Auxiliar1.txt"));
-        BufferedReader f2 = new BufferedReader(new FileReader("./Auxiliar2.txt"));
+        BufferedReader f1 = new BufferedReader(new FileReader("./ME_Auxiliar1_"+this.nombreArchivo+".txt"));
+        BufferedReader f2 = new BufferedReader(new FileReader("./ME_Auxiliar2_"+this.nombreArchivo+".txt"));
         
         // Se LA PRIMERA LÍNEA de cada archivo.
         String contenidoA1 = f1.readLine();
@@ -359,9 +366,9 @@ public class MezclaEquilibrada{
 		// 0 -> No solicita interrupción, todo continúa con normalidad.
 		// 1 -> Solicita una interrupción normal >>>>>>>>
 		// 2 -> Solicita una interrupción de FIN DE ITERACIÓN. //////
-		File archivoFinal = new File("./FINAL.txt");
-		File auxiliar1 = new File("./Auxiliar1.txt");
-		File auxiliar2 = new File("./Auxiliar2.txt");
+		File archivoFinal = new File("./ME_FINAL_"+this.nombreArchivo+".txt");
+		File auxiliar1 = new File("./ME_Auxiliar1_"+this.nombreArchivo+".txt");
+		File auxiliar2 = new File("./ME_Auxiliar2_"+this.nombreArchivo+".txt");
 		FileWriter f0 = new FileWriter(archivoFinal,true);
 		FileWriter f1 = new FileWriter(auxiliar1,true);
 		FileWriter f2 = new FileWriter(auxiliar2,true);
@@ -507,7 +514,7 @@ public class MezclaEquilibrada{
 		ArrayList<Alumno> nueva = new ArrayList<>();
 
 		// Se abre el archivo donde tiene el NUEVO ORDEN DE LOS DATOS.
-		File archivoFinal = new File("./FINAL.txt");
+		File archivoFinal = new File("./ME_FINAL_"+this.nombreArchivo+".txt");
         FileReader contenidoFinal = new FileReader(archivoFinal);
         
         // Se requiere pasar el contenido al buffer para que pueda leerse 

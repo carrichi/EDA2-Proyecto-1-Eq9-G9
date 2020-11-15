@@ -76,7 +76,7 @@ public class Main{
 							break;
 							case 2:
 								System.out.println("Comenzó Mezcla equilibrada POR NOMBRES");
-								ordenamiento.mezclaEquilibrada(1);
+								ordenamiento.mezclaEquilibrada(nombre,1);
 							break;
 						}
 					break;
@@ -93,7 +93,7 @@ public class Main{
 								break;
 							case 2:
 								System.out.println("Comenzó Mezcla equilibrada POR APELLIDOS");
-								ordenamiento.mezclaEquilibrada(2);
+								ordenamiento.mezclaEquilibrada(nombre,2);
 							break;
 						}
 					break;

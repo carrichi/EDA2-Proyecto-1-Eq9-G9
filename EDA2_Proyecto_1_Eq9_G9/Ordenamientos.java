@@ -23,19 +23,22 @@ public class Ordenamientos{
 	public ArrayList<Alumno> datos(String ruta)  throws FileNotFoundException, IOException{	
 	    ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
 
-		// Indicar dirección de datos dada su ruta relativa.     
+		// Indicar dirección de datos dada su ruta relativa o absoluta.
         Path datos = Paths.get(ruta);
         
+        // Todo el contenido del archivo en cuestión se almacenará
+        // en el buffer.
         BufferedReader brDatos = Files.newBufferedReader(datos);
         
-        // Obtenemos los datos de las lineas
-        Stream <String> lineasDatos = brDatos.lines();
-        
-        // Imprime los datos del archivo
-        // lineasDatos.forEach(System.out::println);
-
+        // Se creará una secuencia de elementos "Stream" con los datos
+        // leídos por el buffer.
         Stream <String> datosAlumnos = brDatos.lines();
         
+        // Es una implementación de programación funcional.
+        // Aquí se ejecuta una función anónima que en este caso separa
+        // cada línea del archivo para dividirla y de la infomación
+        // obtenida crear un objeto de tipo "Alumno", el cual se añadirá
+        // a la lista que contenga a todos los alumnos.
         datosAlumnos.forEach(l -> {
             String[] linea = l.split("\\,");
             Alumno alumno = new Alumno(linea[0], linea[1], linea[2]);
@@ -50,13 +53,15 @@ public class Ordenamientos{
 	    Polifase polifase = new Polifase();
 		polifase.sort(listadatos,nombre,opcion);
 	}
+
 	public void radixSort() throws FileNotFoundException, IOException{
 		ArrayList<Alumno> listadatos = datos(this.ruta);
 	}
-	public void mezclaEquilibrada(int modo)throws FileNotFoundException, IOException{
+
+	public void mezclaEquilibrada(String nombreArchivo, int modo)throws FileNotFoundException, IOException{
 		
 		ArrayList<Alumno> listadatos = datos(this.ruta);
-		MezclaEquilibrada mezcla = new MezclaEquilibrada();
+		MezclaEquilibrada mezcla = new MezclaEquilibrada(nombreArchivo);
 		switch (modo) {
 			case 1:
 				mezcla.sortNombres(listadatos,0,0,0);
@@ -73,11 +78,6 @@ public class Ordenamientos{
 			break;
 		}
 
-	}
-	public void print(ArrayList<Alumno> alumnos){
-		for (Alumno alumno: alumnos) {
-			alumno.info();
-		}
 	}
 }
 
