@@ -168,7 +168,7 @@ public class Polifase{
                                     	i++;
                                     }
                                 }else{
-                                    if(Fl.getApellido().compareTo(Fr.getApellido())>0){
+                                    if(Fl.getNombre().compareTo(Fr.getNombre())>0){
 					f.add(fr.remove(0));
 					j++;
                                     }else{
