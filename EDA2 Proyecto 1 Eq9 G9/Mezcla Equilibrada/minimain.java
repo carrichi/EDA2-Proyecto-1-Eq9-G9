@@ -33,6 +33,6 @@ public class minimain{
         });
 
         // El 0 hace referencia a que quiere ordenarlos por nombre.
-        mezcla.sortNombres(listadatos,0,0,0);
+        mezcla.sortApellidos(listadatos,0,0,0);
 	}
 }

@@ -18,12 +18,12 @@ public class Equilibrada{
 	
 	public void sortNombres(ArrayList<Alumno> alumnos,int inicioF1, int inicioF2, int inicioFinal) throws FileNotFoundException, IOException{
 		// Primero se verificará si están ordenados los datos que llegaron.
-		if(verificar(alumnos)){
+		if(verificar(alumnos,1)){
 			System.out.println("¡Ya está ordenada!");
 		}else{
 			System.out.println("No está ordenada, se intentará de nuevo.");
-			separarArchivo(alumnos);
-			int[] finales = mezclarArchivo(inicioF1,inicioF2);
+			separarArchivo(alumnos,1);
+			int[] finales = mezclarArchivo(inicioF1,inicioF2,1);
 
 			// Esta última referencia se encuentra en el último elemento de una nueva
 			// lista.
@@ -35,7 +35,7 @@ public class Equilibrada{
 
 	    	// Ya que se ha eliminado el elemento que no pertenece a la línea original,
 	    	// se procede a verificar.
-	    	if(verificar(nuevaListaAlumnos)){
+	    	if(verificar(nuevaListaAlumnos,1)){
 	    		System.out.println("¡Ya se ordenó!");
 	    	}else{
 	    		System.out.println("Aún no se ordena, lo intentaremos de nuevo.):");
@@ -45,8 +45,38 @@ public class Equilibrada{
 	    	}
 		}
 	}
-	
-	public int[] mezclarArchivo(int inicio1,int inicio2) throws FileNotFoundException, IOException{
+
+	public void sortApellidos(ArrayList<Alumno> alumnos,int inicioF1, int inicioF2, int inicioFinal) throws FileNotFoundException, IOException{
+		// Primero se verificará si están ordenados los datos que llegaron.
+		if(verificar(alumnos,2)){
+			System.out.println("¡Ya está ordenada!");
+		}else{
+			System.out.println("No está ordenada, se intentará de nuevo.");
+			separarArchivo(alumnos,2);
+			int[] finales = mezclarArchivo(inicioF1,inicioF2,2);
+
+			// Esta última referencia se encuentra en el último elemento de una nueva
+			// lista.
+	    	ArrayList<Alumno> nuevaListaAlumnos = nuevaLista(inicioFinal);
+
+	    	// Se almacena el último elemento para encontrar la línea final, siendo esta
+	    	// un "número de cuenta".
+	    	Alumno ultima = nuevaListaAlumnos.remove(nuevaListaAlumnos.size()-1);
+
+	    	// Ya que se ha eliminado el elemento que no pertenece a la línea original,
+	    	// se procede a verificar.
+	    	if(verificar(nuevaListaAlumnos,2)){
+	    		System.out.println("¡Ya se ordenó!");
+	    	}else{
+	    		System.out.println("Aún no se ordena, lo intentaremos de nuevo.):");
+				// Se convierte la última referencia del archivo final en un entero
+				int ultimaInt = Integer.parseInt(ultima.getNoCuenta());
+				sortApellidos(nuevaListaAlumnos,finales[0],finales[1],ultimaInt);
+	    	}
+		}
+	}
+
+	public int[] mezclarArchivo(int inicio1,int inicio2, int modo) throws FileNotFoundException, IOException{
 
 		/***************************************************************************/
 		/*                                                                         */
@@ -127,8 +157,12 @@ public class Equilibrada{
 	        if( ! listaf0.isEmpty() ){
 		        // Ya que fueron agregados elementos se deben ordenar y después
 		        // añadir al archivo inicial (que en este caso será FINAL.txt)
-		        ArrayList<Alumno> listaOrdenada = ordenar(listaf0);
-		        
+		        ArrayList<Alumno> listaOrdenada;
+		        if(modo == 1){
+		        	listaOrdenada = ordenar(listaf0,1);
+		        }else{
+		        	listaOrdenada = ordenar(listaf0,2);
+		        }
 		        for (Alumno alumno : listaOrdenada) {
 		         	añadir(alumno, 0, 0);
 		            /*       ^     ^  ^
@@ -175,11 +209,8 @@ public class Equilibrada{
 	    int[] finales ={inicioF1+1,inicioF2+1};
 	    return finales;
 	}
-
-	public void sortApellidos(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{}
-
 	
-	public void separarArchivo(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{
+	public void separarArchivo(ArrayList<Alumno> alumnos, int modo) throws FileNotFoundException, IOException{
 
 		/***************************************************************************/
 		/*                                                                         */
@@ -187,14 +218,32 @@ public class Equilibrada{
 		/*                                                                         */
 		/***************************************************************************/
 
+		// EL "modo", funciona para identificar si se está solicitando separar por
+		// NOMBRES (1) o por APELLIDO (2)
+
+
 		// El archivo donde se comenzará a añadir será en f1
 		int archivo = 1;
 		int i;
 		for(i=0;i<alumnos.size()-1;i++){
 			Alumno anterior = alumnos.get(i);
 			Alumno alumno = alumnos.get(i+1);
-			if(prioridad(anterior.getNombre(),0)==prioridad(alumno.getNombre(),0)){
-				int prioridad = resolverColision(anterior.getNombre(),alumno.getNombre());
+			int prioridadAnterior;
+			int prioridadAlumno;
+			if(modo == 1){
+				prioridadAnterior = prioridad(anterior.getNombre(),0,1);
+				prioridadAlumno = prioridad(alumno.getNombre(),0,1);
+			}else{
+				prioridadAnterior = prioridad(anterior.getApellido(),0,2);
+				prioridadAlumno = prioridad(alumno.getApellido(),0,2);
+			}
+			if(prioridadAnterior==prioridadAlumno){
+				int prioridad;
+				if(modo == 1){
+					prioridad = resolverColision(anterior.getNombre(),alumno.getNombre(),1);
+				}else{
+					prioridad = resolverColision(anterior.getApellido(),alumno.getApellido(),2);
+				}
 				// Si tiene más prioridad el alumno enviado en el primer argumento.
 				if(prioridad==0||prioridad==1){
 					// El cero representará que SON IGUALES LOS NOMBRES.
@@ -213,8 +262,7 @@ public class Equilibrada{
 						archivo=1;
 					}
 				}
-			}
-			else if(prioridad(anterior.getNombre(),0)<prioridad(alumno.getNombre(),0)){
+			}else if(prioridadAnterior<prioridadAlumno){
 				// Ya que el valor siguiente matiene un orden ascendente se guarda
 				// en el archivo que corresponde en ese momento.
 				añadir(anterior,archivo,0);
@@ -259,14 +307,31 @@ public class Equilibrada{
 		añadir(ultimoLista,2,-1);
 	}
 
-	public ArrayList<Alumno> ordenar(ArrayList<Alumno> alumnos){
+	public ArrayList<Alumno> ordenar(ArrayList<Alumno> alumnos, int modo){
+		
+		// EL segundo argumento indicará por que MODO se organizarán
+		// si por NOMBRE (1) o por APELLIDO (2)
+
        	for (int i = 0; i < alumnos.size()-1; i++) {
        	    for (int j = 0; j < alumnos.size()-i-1; j++) {
-       	    	int prioridadAlu1 = prioridad(alumnos.get(j).getNombre(),0);
-       	    	int prioridadAlu2 = prioridad(alumnos.get(j+1).getNombre(),0);
+       	    	int prioridadAlu1;
+       	    	int prioridadAlu2;
+       	    	if(modo == 1 ){
+       	    		prioridadAlu1 = prioridad(alumnos.get(j).getNombre(),0,1);
+       	    		prioridadAlu2 = prioridad(alumnos.get(j+1).getNombre(),0,1);
+       	    	}else{
+       	    		prioridadAlu1 = prioridad(alumnos.get(j).getApellido(),0,2);
+       	    		prioridadAlu2 = prioridad(alumnos.get(j+1).getApellido(),0,2);
+       	    	}
+       	        
        	        if(prioridadAlu1==prioridadAlu2){
        	        	// Si tienen la misma prioridad hay una COLISIÓN.
-       	        	int ganador = resolverColision(alumnos.get(j).getNombre(),alumnos.get(j+1).getNombre());
+       	        	int ganador;
+       	        	if(modo == 1){
+       	        		ganador = resolverColision(alumnos.get(j).getNombre(),alumnos.get(j+1).getNombre(),1);
+       	        	}else{
+       	        		ganador = resolverColision(alumnos.get(j).getApellido(),alumnos.get(j+1).getApellido(),2);
+       	        	}
        	        	// Ahora que se sabe quien tiene mejor probabilidad se ordenará 
        	        	if(ganador==2){
        	        		// Si el ganador es el segundo, quiere decir que el segundo 
@@ -353,13 +418,16 @@ public class Equilibrada{
 
 	// Este método servirá para poder identificar si se están leyendo los valores en orden
 	// y posteriormente para poder ordenarlos.
-	public int prioridad(String cadena, int indice){
+	public int prioridad(String cadena, int indice, int modo){
+		// Mediante el modo se identificará en en base a que se definirá la prioridad
+		// (1) para NOMBRES
+		// (2) para APELLIDOS
 		try{
 			// La prioridad de elección se realizará mediante el primer caracter del nombre
 			// y se devolverá el índice, entre menor sea el índice, hay mayor prioridad.
 			char mayusculas[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 			char minusculas[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','ñ','o','p','q','r','s','t','u','v','w','x','y','z'};
-			char acentos[]={'á','é','í','ó','ú'};
+			char acentos[]={'Á','É','Í','Ó','Ú','á','é','í','ó','ú'};
 			char letra = cadena.charAt(indice);
 			for(int i=0;i<mayusculas.length;i++){
 				char aux = mayusculas[i];
@@ -371,8 +439,13 @@ public class Equilibrada{
 			for (int i=0;i<minusculas.length;i++) {
 				char aux = minusculas[i];
 				if(letra == aux){
-					// La prioridad será siempre menor a las mayúsculas.
-					return i+26;
+					// Si el usuario quiere organizarlo por nombres, importa que sean
+					// mayústulas, por lo que si se toman en cuenta.
+					if(modo == 1){
+						return i+26;
+					}else{
+						return i;
+					}
 				}
 
 			}
@@ -385,24 +458,38 @@ public class Equilibrada{
 					// de su vocal.
 					switch (letra){
 						case 'á':
-							i=0;
+							i=0+26;
 						break;
 						case 'é':
-							i=4;
+							i=4+26;
 						break;
 						case 'í':
-							i=8;
+							i=8+26;
 						break;
 						case 'ó':
-							i=15;
+							i=15+26;
 						break;
 						case 'ú':
+							i=21+26;
+						break;
+						case 'Á':
+							i=0;
+						break;
+						case 'É':
+							i=4;
+						break;
+						case 'Í':
+							i=8;
+						break;
+						case 'Ó':
+							i=15;
+						break;
+						case 'Ú':
 							i=21;
 						break;
 					}
-					return i+26;
+					return i;
 				}
-
 			}
 			// Solo llegaría aquí si no se encontró, por lo que sería un un caractér
 			// fuera del abecedario.
@@ -448,36 +535,66 @@ public class Equilibrada{
 		return nueva;       
 	}
 	
-	public boolean verificar(ArrayList<Alumno> alumnos){
+	public boolean verificar(ArrayList<Alumno> alumnos, int modo){
 		// Si está ordenada devolverá un TRUE
+		// Si se espera acomodar por NOMBRES es (1), si es por APELLIDOS es (2)
 		int i;
 		for(i=0;i<alumnos.size()-1;i++){
 			Alumno anterior = alumnos.get(i);
 			Alumno alumno = alumnos.get(i+1);
-			if(prioridad(anterior.getNombre(),0)==prioridad(alumno.getNombre(),0)){
-				int prioridad = resolverColision(anterior.getNombre(),alumno.getNombre());
+			int prioridadAnterior;
+			int prioridadAlumno;
+			if(modo == 1){
+				prioridadAnterior = prioridad(anterior.getNombre(),0,1);
+				prioridadAlumno = prioridad(alumno.getNombre(),0,1);
+			}else{
+				prioridadAnterior = prioridad(anterior.getApellido(),0,2);
+				prioridadAlumno = prioridad(alumno.getApellido(),0,2);
+			}
+			if(prioridadAnterior==prioridadAlumno){
+				int prioridad;
+				if(modo == 1){
+					prioridad = resolverColision(anterior.getNombre(),alumno.getNombre(),1);
+				}else{
+					prioridad = resolverColision(anterior.getApellido(),alumno.getApellido(),2);
+				}
 				if(prioridad==2){
 					// Si el segundo valor tiene mejor prioridad ante el primer valor
 					// quiere decir que no está ordenada.
 					return false;
 				}
 			}
-			if(prioridad(anterior.getNombre(),0)>prioridad(alumno.getNombre(),0)){
+			if(prioridadAnterior>prioridadAlumno){
 				return false;
 			}
 		}
 		return true;
 	}
 	
-	public int resolverColision(String nombre1, String nombre2){
+	public int resolverColision(String cadena1, String cadena2,int modo){
 		// Se sabe que al menos en la primera letra (del nombre o apellido) ES IGUAL
 		// Por lo que "prioridad1" y "prioridad2" SON IGUALES.
-		int prioridad1=prioridad(nombre1,0);
-		int prioridad2=prioridad(nombre2,0);
+
+		// El modo indicará si es por NOMBRE (1) o por APELLIDO (2).
+		int prioridad1;
+		int prioridad2;
+		if(modo == 1){
+			prioridad1=prioridad(cadena1,0,1);
+			prioridad2=prioridad(cadena2,0,1);
+		}else{
+			prioridad1=prioridad(cadena1,0,2);
+			prioridad2=prioridad(cadena2,0,2);
+		}
+
 		int caracter=1; /*Indicará indice del próximo caracter que se analizará por prioridad.*/
 		do{
-			prioridad1=prioridad(nombre1,caracter);
-			prioridad2=prioridad(nombre2,caracter);
+			if(modo == 1){
+				prioridad1=prioridad(cadena1,caracter,1);
+				prioridad2=prioridad(cadena2,caracter,1);
+			}else{
+				prioridad1=prioridad(cadena1,caracter,2);
+				prioridad2=prioridad(cadena2,caracter,2);
+			}
 			if(prioridad1<prioridad2){
 				// Si el primer nombre tiene menos prioridad que el segundo
 				// quiere decir que alfabéticamente va antes, por lo tanto, es el
