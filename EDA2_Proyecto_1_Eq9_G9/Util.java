@@ -1,4 +1,3 @@
-package EDA2_Proyecto_1_Eq9_G9;
 
 import java.util.Scanner;
 public class Util{
@@ -34,34 +33,30 @@ public class Util{
 	public char getChar(){
 		return this.letra;			
 	}
-	public void setString(){
-		String aux = sc.nextLine();
-		// Verificar que no se trate de una cadena vacía, 
-		// continuará el programa hasta que se añada algo correcto.
-		while(aux.isEmpty()){
-			System.out.println("Lo sentimos, no pudo ser procesada tu solicitud ya que enviaste una cadena vacía.");
-			System.out.printf("\nInténtalo de nuevo: \n > ");
-			aux = sc.nextLine();
-		}
-		this.cadena=sc.nextLine();
-	}
-	public String getString(){
-		return this.cadena;
-	}
 	public void setInt(){
-		int aux = sc.nextInt();
-		while(aux<=0){
-			System.out.println("Lo sentimos, no pudo ser procesada tu solicitud ya que enviaste una cadena vacía.");
-			
+		String eleccionFinal;
+		String eleccion = sc.nextLine();
+		while(eleccion.isEmpty()){
+			System.out.printf("\n Lo sentimos, no pudo ser procesada tu solicitud, has escrito una opción incorrecta.\n Ingresa un número: \n > ");
+			eleccion = sc.nextLine(); 	
 		}
-		this.entero = aux;
+		if(eleccion.charAt(0)=='1'||eleccion.charAt(0)=='2') {
+			eleccionFinal = eleccion.substring(0,1);
+			this.entero = Integer.parseInt(eleccionFinal);
+		}else{
+			while(eleccion.charAt(0)!='1'&&eleccion.charAt(0)!='2'){
+				System.out.printf("\n Lo sentimos, no pudo ser procesada tu solicitud, has escrito número incorrecto.\n Intenta de nuevo: \n > ");
+				eleccion = sc.nextLine(); 	
+			}
+			eleccionFinal = eleccion.substring(0,1);
+			this.entero = Integer.parseInt(eleccionFinal);
+		}
 	}
 	public int getInt(){
 		return this.entero;
 	}
 	public void exit(){
 		this.letra='n';
-		this.cadena="exit";
 		this.entero=-1;
 	}
 }

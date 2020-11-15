@@ -1,3 +1,5 @@
+package EDA_Proyecto_1_Eq9_G9.Mezcla_Equilibrada;
+import EDA_Proyecto_1_Eq9_G9.Alumno;
 import java.io.IOException;
 import java.util.List;
 import java.util.LinkedList;

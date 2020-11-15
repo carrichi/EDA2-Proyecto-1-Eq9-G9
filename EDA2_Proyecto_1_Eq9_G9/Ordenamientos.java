@@ -1,4 +1,3 @@
-package EDA2_Proyecto_1_Eq9_G9;
 
 import java.util.List;
 import java.util.LinkedList;
@@ -14,11 +13,17 @@ import java.io.BufferedReader;
 import java.util.stream.Stream;
 
 public class Ordenamientos{
-	public ArrayList<Alumno> datos() throws IOException{	
+	String ruta;
+
+	public Ordenamientos(String ruta){
+		this.ruta = ruta;
+	}
+
+	public ArrayList<Alumno> datos(String ruta) throws IOException{	
 	    ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
 
 		// Indicar dirección de datos dada su ruta relativa.     
-        Path datos = Paths.get("./claves.txt");
+        Path datos = Paths.get(ruta);
         
         BufferedReader brDatos = Files.newBufferedReader(datos);
         
@@ -40,15 +45,15 @@ public class Ordenamientos{
 	}
 
 	public void polifase() throws IOException{
-		ArrayList<Alumno> listadatos = datos();
+		ArrayList<Alumno> listadatos = datos(this.ruta);
 	    Polifase polifase = new Polifase();
 		polifase.sort(listadatos);
 	}
 	public void radixSort() throws IOException{
-		ArrayList<Alumno> listadatos = datos();
+		ArrayList<Alumno> listadatos = datos(this.ruta);
 	}
 	public void mezclaEquilibrada(){
-        
+		        
 
 	}
 }
