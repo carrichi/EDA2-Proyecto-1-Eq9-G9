@@ -1,3 +1,5 @@
+package EDA2_Proyecto_1_Eq9_G9;
+
 import java.util.Scanner;
 public class Util{
 	// Clases de apoyo

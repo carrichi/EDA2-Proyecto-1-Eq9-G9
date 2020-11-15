@@ -1,3 +1,5 @@
+package EDA2_Proyecto_1_Eq9_G9;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;

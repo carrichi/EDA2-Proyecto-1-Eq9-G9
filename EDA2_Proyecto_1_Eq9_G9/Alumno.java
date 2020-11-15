@@ -1,3 +1,4 @@
+package EDA2_Proyecto_1_Eq9_G9;
 public class Alumno {
     
     private String nombre;

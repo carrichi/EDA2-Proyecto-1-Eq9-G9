@@ -1,3 +1,5 @@
+package EDA2_Proyecto_1_Eq9_G9;
+
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.Files;
@@ -5,6 +7,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.stream.Stream;
+import java.util.Scanner;
 
 public class Main{
 	public static void main(String[] args) throws IOException{
@@ -20,14 +23,14 @@ public class Main{
 		System.out.println();
 		do{
 			// Solicitar información del archivo que se quiere ordenar.
-			String ruta,nombre;
+			String ruta, nombre;
 			System.out.println("Ingrese la ruta de su archivo");
 			Scanner leer = new Scanner(System.in);
-			ruta= leer.nextLine();
+			ruta = leer.nextLine();
 	        
-			System.out.println("Ingrese el nombre de su archivo");
-			Path datos = Paths.get(ruta+"\\"+nombre+".txt");
+			System.out.println("Ingrese el nombre de su archivo (sin tipo de formato).");
 			nombre = leer.nextLine();
+			Path datos = Paths.get(ruta+"\\"+nombre+".txt");
 			System.out.println("¿Qué tipo de ordenamiento quieres implementar?");
 			System.out.println("1. Ordenamiento por Polifase. ");
 			System.out.println("2. Ordenamiento por Mezcla equilibrada. ");
@@ -51,6 +54,7 @@ public class Main{
 					System.out.println("\n##################################################################");
 					System.out.println("#         HAS ELIGIDO ORDENAR MEDIANTE: Número de cuenta         #");
 					System.out.println("##################################################################");
+					// Ya que se eligió por número de cuenta, se ordenará directamente por RadixSort
 				break;
 				case '4':
 					opcion.exit();

@@ -1,3 +1,5 @@
+package EDA2_Proyecto_1_Eq9_G9;
+
 import java.util.List;
 import java.util.LinkedList;
 import java.util.ArrayList;
@@ -44,23 +46,10 @@ public class Ordenamientos{
 	}
 	public void radixSort() throws IOException{
 		ArrayList<Alumno> listadatos = datos();
-
-        // Esto es para imprimir la lista cuando ya este separada 
-
-        /*for(Alumno i:listadatos){
-            System.out.println(i.getNombre());
-        }*/
-        //System.out.println(listadatos.toString());
-
-        // Esto es para imprimir la lista cuando ya este separada 
-           
-       /* for(Alumno datosAlumno: listadatos){
-           System.out.println("Apellido: "+ datosAlumno.getApellido());
-           System.out.println("Nombre: "+ datosAlumno.getNombre());
-           System.out.println("NoCuenta: "+ datosAlumno.getNoCuenta());
-        }*/
 	}
 	public void mezclaEquilibrada(){
+        
+
 	}
 }
 

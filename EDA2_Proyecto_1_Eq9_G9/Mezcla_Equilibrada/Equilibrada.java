@@ -1,3 +1,5 @@
+package Mezcla_Equilibrada;
+import EDA2_Proyecto_1_Eq9_G9.Alumno;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.BufferedReader;
