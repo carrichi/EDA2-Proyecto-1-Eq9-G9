@@ -1,12 +1,12 @@
 
+// Clases de apoyo
 import java.util.Scanner;
+
 public class Util{
-	// Clases de apoyo
 	Scanner sc = new Scanner(System.in);
 
 	// Atributos de instancia
 	private char letra;
-	private String cadena;
 	private int entero;
 	
 	// GETTERS Y SETTERS
@@ -20,6 +20,7 @@ public class Util{
 		// Validación, si no añade algo a su elección toma un valor
 		// por defecto.
 		if(aux.isEmpty()){
+			System.out.println("\t \033[0;35m¡\033[1m\033[38;5;11mSe tomó la opción 'S' por defecto\033[0;35m!\033[0m");
 			this.letra = 'S';
 		}else if(aux.charAt(0) == 's'){
 			this.letra = 'S';

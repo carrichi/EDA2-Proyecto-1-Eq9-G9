@@ -31,25 +31,27 @@ public class Main{
 		System.out.println();
 		do{
 			// Solicitar información del archivo que se quiere ordenar.
-			System.out.printf(blanco+" \n Ingresa la ruta de su archivo: (puede ser "+negrita+amarillo+"relativa o absoluta"+blanco+")\n > "+amarillo);
+			System.out.printf(blanco+" \n Ingresa la ruta a la carpeta de su archivo: (puede ser "+negrita+amarillo+"relativa o absoluta"+blanco+")\n > "+amarillo);
 			Scanner leer = new Scanner(System.in);
 			String ruta = leer.nextLine();
 	        
 			System.out.printf(blanco+" \nIngrese el nombre de su archivo ("+negrita+amarillo+"sin tipo de formato"+blanco+")\n > "+amarillo);
 			String nombre = leer.nextLine();
 			
+			// Si se utiliza Windows, descomenta las siguientes dos líneas.
 			// Path datos = Paths.get(ruta+"\\"+nombre+".txt");
-			Path datos = Paths.get(ruta+"/"+nombre+".txt");
-			System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+datos.toString()+reset);
+			// System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+datos.toString()+reset);
+			// Se se utiliza Linux, se utilizan las siguientes dos líneas.
+			ruta = ruta+"/"+nombre+".txt";
+			System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+ruta+reset);
 
-			File archivo = new File(datos.toString());
+			File archivo = new File(ruta);
 			if (!archivo.exists()) {
 			    System.out.println("\n\t"+negrita+amarillo+" ¡¡No existe el archivo !!");
 			    System.out.println(blanco+" Empecemos otra vez... ");
 			    opcion.setChar('S');
 			}else{
 				System.out.println("\t"+morado+"Si existe"+blanco+", podemos continuar.");
-				ruta = ruta+"/"+nombre+"txt";
 				
 				Ordenamientos ordenamiento = new Ordenamientos(ruta);
 
@@ -57,7 +59,7 @@ public class Main{
 				System.out.println(" "+azulclaro+"1"+blanco+". Ordenamiento por nombres ");
 				System.out.println(" "+azulclaro+"2"+blanco+". Ordenamiento por apellidos ");
 				System.out.println(" "+azulclaro+"3"+blanco+". Ordenamiento por números de cuenta ");
-				System.out.println(" "+azulclaro+"4"+blanco+". Salir.");
+				System.out.println(" "+azulclaro+"4"+blanco+". Salir");
 				System.out.printf("\nElige tu opción con el número.\n > "+amarillo);
 				opcion.setChar();
 				switch (opcion.getChar()){
@@ -69,10 +71,11 @@ public class Main{
 						opcion.setInt();
 						switch (opcion.getInt()) {
 							case 1:
-							System.out.println("Comenzó Polifase POR NOMBRES");
+								System.out.println("Comenzó Polifase POR NOMBRES");
 							break;
 							case 2:
-							System.out.println("Comenzó Mezcla equilibrada POR NOMBRES");
+								System.out.println("Comenzó Mezcla equilibrada POR NOMBRES");
+								ordenamiento.mezclaEquilibrada(1);
 							break;
 						}
 					break;
@@ -88,7 +91,7 @@ public class Main{
 							break;
 							case 2:
 								System.out.println("Comenzó Mezcla equilibrada POR APELLIDOS");
-
+								ordenamiento.mezclaEquilibrada(2);
 							break;
 						}
 					break;

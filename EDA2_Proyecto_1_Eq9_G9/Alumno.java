@@ -11,6 +11,8 @@ public class Alumno {
         this.noCuenta = noCuenta;
     }
 
+    // GETTERS Y SETTERS QUE TENDRÁ CADA OBJETO
+
     /**
      * @return the nombre
      */
@@ -52,5 +54,12 @@ public class Alumno {
     public void setNoCuenta(String noCuenta) {
         this.noCuenta = noCuenta;
     }
-  
+ 
+    // MÉTODOS Y UTILIDADES
+    public void info(){
+        System.out.println("Nombre: "+this.nombre);
+        System.out.println("Apellidos: "+this.apellido);
+        System.out.println("Núm. cuenta: "+this.noCuenta);
+    }
+
 }
