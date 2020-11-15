@@ -1,5 +1,4 @@
 import java.io.IOException;
-
 import java.util.List;
 import java.util.LinkedList;
 import java.util.Arrays;
@@ -20,7 +19,7 @@ public class minimain{
 	    ArrayList<Alumno> listadatos = new ArrayList<Alumno>(); 
 
 		// Indicar dirección de datos dada su ruta relativa.     
-        Path datos = Paths.get("./pruebas.txt");
+        Path datos = Paths.get("./claves.txt");
         BufferedReader brDatos = Files.newBufferedReader(datos);
         
         // Obtenermos los datos guardados en el buffer
@@ -33,6 +32,6 @@ public class minimain{
         });
 
         // El 0 hace referencia a que quiere ordenarlos por nombre.
-        mezcla.sortNombres(listadatos);
+        mezcla.sortNombres(listadatos,0,0,0);
 	}
 }

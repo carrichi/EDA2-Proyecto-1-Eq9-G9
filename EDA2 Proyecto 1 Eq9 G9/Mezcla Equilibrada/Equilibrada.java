@@ -1,237 +1,182 @@
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.PrintWriter;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.stream.Stream;
 
 public class Equilibrada{
-	public boolean verificar(ArrayList<Alumno> alumnos){
-		// Si está ordenada devolverá un TRUE
-		int i;
-		for(i=0;i<alumnos.size()-1;i++){
-			Alumno anterior = alumnos.get(i);
-			Alumno alumno = alumnos.get(i+1);
-			if(prioridad(anterior.getNombre(),0)==prioridad(alumno.getNombre(),0)){
-				int prioridad = resolverColision(anterior.getNombre(),alumno.getNombre());
-				if(prioridad==2){
-					// Si el segundo valor tiene mejor prioridad ante el primer valor
-					// quiere decir que no está ordenada.
-					return false;
-				}
-			}
-			if(prioridad(anterior.getNombre(),0)>prioridad(alumno.getNombre(),0)){
-				return false;
-			}
-		}
-		return true;
-	}
-	public int resolverColision(String nombre1, String nombre2){
-		// Se sabe que al menos en la primera letra (del nombre o apellido) ES IGUAL
-		// Por lo que "prioridad1" y "prioridad2" SON IGUALES.
-		int prioridad1=prioridad(nombre1,0);
-		int prioridad2=prioridad(nombre2,0);
-		int caracter=1; /*Indicará indice del próximo caracter que se analizará por prioridad.*/
-		do{
-			prioridad1=prioridad(nombre1,caracter);
-			prioridad2=prioridad(nombre2,caracter);
-			if(prioridad1<prioridad2){
-				// Si el primer nombre tiene menos prioridad que el segundo
-				// quiere decir que alfabéticamente va antes, por lo tanto, es el
-				// ganador.
-				return 1;
-			}else if(prioridad1>prioridad2){
-				// Si la prioridad del primer nombre es mayor quiere decir que
-				// el segundo nombre va alfabéticamente antes que el otro valor.
-				return 2;
-			}
-			if(prioridad1==-100||prioridad2==-100){
-				// Si hay un momento donde se genera una excepción quiere decir que
-				// jamás se encontraron diferencias y se llegó a una posición de la 
-				// cadena que no existe, por lo tanto... SON IGUALES
-				return 0;
-			}
-			caracter+=1;
-		}while(prioridad1==prioridad2);
-		return 0;
-	}
-	public void sortNombres(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{
+	
+	public void sortNombres(ArrayList<Alumno> alumnos,int inicioF1, int inicioF2, int inicioFinal) throws FileNotFoundException, IOException{
 		// Primero se verificará si están ordenados los datos que llegaron.
 		if(verificar(alumnos)){
 			System.out.println("¡Ya está ordenada!");
 		}else{
-			// separarArchivo(alumnos);
-			mezclarArchivo();
+			System.out.println("No está ordenada, se intentará de nuevo.");
+			separarArchivo(alumnos);
+			int[] finales = mezclarArchivo(inicioF1,inicioF2);
+
+			// Esta última referencia se encuentra en el último elemento de una nueva
+			// lista.
+	    	ArrayList<Alumno> nuevaListaAlumnos = nuevaLista(inicioFinal);
+
+	    	// Se almacena el último elemento para encontrar la línea final, siendo esta
+	    	// un "número de cuenta".
+	    	Alumno ultima = nuevaListaAlumnos.remove(nuevaListaAlumnos.size()-1);
+
+	    	// Ya que se ha eliminado el elemento que no pertenece a la línea original,
+	    	// se procede a verificar.
+	    	if(verificar(nuevaListaAlumnos)){
+	    		System.out.println("¡Ya se ordenó!");
+	    	}else{
+	    		System.out.println("Aún no se ordena.):");
+				// Se convierte la última referencia del archivo final en un entero
+				int ultimaInt = Integer.parseInt(ultima.getNoCuenta());
+				sortNombres(nuevaListaAlumnos,finales[0],finales[1],ultimaInt);
+	    	}
 		}
 	}
 	
-	public void mezclarArchivo() throws FileNotFoundException, IOException{
+	public int[] mezclarArchivo(int inicio1,int inicio2) throws FileNotFoundException, IOException{
 
 		/***************************************************************************/
 		/*                                                                         */
 		/*              INICIA FASE 2 - UNIÓN DE AUXILIARES                        */
 		/*                                                                         */
 		/***************************************************************************/
-
-		// Se crearán dos listas que guardarán temporalmente los datos hasta que 
-		// encuentren cierta cantidad de interrupciones. 
-	    ArrayList<Alumno> listaf1 = new ArrayList<>();
-	    ArrayList<Alumno> listaf2 = new ArrayList<>();
-	          
+  		int inicioF1=inicio1;
+  		int inicioF2=inicio2;
 	    // Guardamos todo el contenido del archivo en el buffer del primer archivo
 	    // auxiliar.
         BufferedReader f1 = new BufferedReader(new FileReader("./Auxiliar1.txt"));
         BufferedReader f2 = new BufferedReader(new FileReader("./Auxiliar2.txt"));
         
-        // Se almacena todo el contenido del archivo en una variable para después
-        // separarla.
+        // Se LA PRIMERA LÍNEA de cada archivo.
         String contenidoA1 = f1.readLine();
         String contenidoA2 = f2.readLine();
-
-        int interrupcionesA1=0;
-        int interrupcionesA2=0;
-
-        int mezclas=1; /*Es la primera mezcla que se realiza.*/
-        for (int i=0;i<mezclas;i++) {
-        // while (contenidoA2.charAt(0)!='/'){
-        		
-        	// Llenar la lista 1 hasta que encuentre una interrupción.
-	        while (contenidoA1.charAt(0) != '>'){
-        		String[] datos = contenidoA1.split(",");
-        		listaf1.add(new Alumno(datos[0],datos[1],datos[2]));
-	        	contenidoA1 = f1.readLine();
-	        	// Verifica si la nueva línea que acaba de leer es una interrupción.
-	        	if(contenidoA1.charAt(0) == '>'){
-	        		// Ya que se trata de una interrupción, se añade al contador del
-	        		// archivo en cuestión.
-        			interrupcionesA1+=1;
-	        	}
-	        }
-
-	        while (contenidoA2.charAt(0) != '>'){
-        		String[] datos = contenidoA2.split(",");
-        		listaf2.add(new Alumno(datos[0],datos[1],datos[2]));
-	        	contenidoA2 = f2.readLine();
-	        	if(contenidoA2.charAt(0) == '>'){
-        			interrupcionesA2+=1;
-	        	}
-	        }
-
-	        // Ya que se tienen las dos listas hasta la primera interrupción, 
-	        // se mezclan y se ordenan, el resultado se imprime en archivo final
-	        // en este caso será en un archivo FINAL.txt, para que no se sobreescriban
-	        // las claves.
-
-	        ArrayList<Alumno> listaf0 = new ArrayList<>();
-	        for (Alumno alumno : listaf1) {
-	        	listaf0.add(alumno);
-	        }
-	        for (Alumno alumno : listaf2) {
-	        	listaf0.add(alumno);
-	        }
-
-	        // YA SE MEZCLARON LAS LISTAS, FALTA ORDENARLAS
-	        ArrayList<Alumno> listaOrdenada = ordenar(listaf0);
-	        // Ya que se ordenaron, deben añadirse al archivo final.
-	        for (Alumno alumno : listaOrdenada) {
-	        	añadir(alumno, 0, 0);
-	        	/*       ^     ^  ^
-	        	         |     |  |
-	        	         |     | Indica que se añadirá SIN INTERRUPCIÓN
-	        	         |     |  
-	        	         |   Indica que se añadirá en el archivo FINAL 
-	        	         |       
-	        	        Indica que alumno se añadirá.
-	        	*/
-	        }
-
-	        // Ya que se se mezclaron, comenzará la mezcla número 2
-	        // mezclas+=1; 
+        if(inicioF1!=0){
+        	for (int i=1;i<=inicioF1;i++ ) {
+				contenidoA1 = f1.readLine();
+        	}
         }
-// Cantidad de interrupciones alcanzadas.
-System.out.println("A1="+interrupcionesA1);
-System.out.println("A2="+interrupcionesA2);
-System.out.println("Mezclas="+mezclas);
+        if(inicioF2!=0){
+	        for (int i=1;i<=inicioF2;i++ ) {
+				contenidoA1 = f2.readLine();
+	    	}
+        }
+
+        while (contenidoA2.charAt(0) != '/'){
+	        
+       		// Se crearán dos listas que guardarán temporalmente los datos hasta que 
+       		// se encuentren con una interrupción. 
+       	    ArrayList<Alumno> listaf1 = new ArrayList<>();
+       	    ArrayList<Alumno> listaf2 = new ArrayList<>();
+
+	        // Esta es la lista que almacenará el contenido de las otras dos listas
+	        // para que después esta se ordene.
+	        ArrayList<Alumno> listaf0 = new ArrayList<>();
+
+        	// Llenar la lista 1 hasta que encuentre una interrupción.
+	        if(contenidoA1.charAt(0) == '>'||contenidoA1.charAt(0) == '/'){
+	        	// Si la última línea que leyó es una interrupción, pasa a 
+	        	// la segunda línea
+	        	contenidoA1=f1.readLine();
+				inicioF1+=1;
+	        }else{
+	        	// Si la ínea no es una interrupción, se guardará en la lista 1
+	        	// los datos de los alumnos hasta que encuentre la siguiete interrupción
+	        	// o el final del archivo.
+	        	do{
+	        		String[] datos = contenidoA1.split(",");
+	        		listaf1.add(new Alumno(datos[0],datos[1],datos[2]));
+		        	contenidoA1 = f1.readLine();
+					inicioF1+=1;
+		        }while (contenidoA1.charAt(0) != '>' && contenidoA1.charAt(0) != '/');
+
+		        // Los datos añadidos se añadirán a la lista que contenga todos.
+		        for (Alumno alumno : listaf1) {
+		        	listaf0.add(alumno);
+		        }
+	        }
+	        if(contenidoA2.charAt(0) == '>'||contenidoA2.charAt(0) == '/'){
+	        	contenidoA2=f2.readLine();
+				inicioF2+=1;
+	        }else{
+	        	do{
+	        		String[] datos = contenidoA2.split(",");
+	        		listaf2.add(new Alumno(datos[0],datos[1],datos[2]));
+		        	contenidoA2 = f2.readLine();
+					inicioF2+=1;
+		        }while (contenidoA2.charAt(0) != '>' && contenidoA2.charAt(0) != '/');
+		        for (Alumno alumno : listaf2) {
+		        	listaf0.add(alumno);
+		        }
+	        }
+
+	        if( ! listaf0.isEmpty() ){
+		        // Ya que fueron agregados elementos se deben ordenar y después
+		        // añadir al archivo inicial (que en este caso será FINAL.txt)
+
+		        ArrayList<Alumno> listaOrdenada = ordenar(listaf0);
+		        
+		        for (Alumno alumno : listaOrdenada) {
+		         	añadir(alumno, 0, 0);
+		            /*       ^     ^  ^
+		          	         |     |  |
+	        	             |     | Indica que se añadirá SIN INTERRUPCIÓN
+	         	             |     |  
+	        	             |   Indica que se añadirá en el archivo FINAL 
+	         	             |       
+	         	           Indican los datos que se añadirán.
+		            */
+		        }
+	        }
+
+        }
+        // Dado que el límite de iteraciones lo pone el ARCHIVO AUXILIAR 2
+        // debe verificarse si quedó un elemento libre en el archivo auxiliar 1
+        // y ya que se dividen en pares, solo hay posibilidad que un elemento haya quedado
+        // libre, el contenido de esa última línea ya se encuentra en contenidoA1
+        
+        // Si se dividió en pares, las variables contenidoA1 y contenidoA2, tendrían un
+        // "///////////////////////", SI ES IMPAR la cantidad de elementos, el valor de
+        // contenidoA1 será un ">>>>>>>>>>>>>>>>>>"
+
+        if(contenidoA1.charAt(0)=='>'){
+        	// Si se trata de una interrupción, es que hay un registro extra EN LA 
+        	// SIGUIENTE LÍNEA, por lo tanto, se debe leer la siguiente.
+        	contenidoA1 = f1.readLine();
+			inicioF1+=1;
+        	if( contenidoA1.charAt(0)!='/') {
+		        String[] datos = contenidoA1.split(",");
+		        añadir(new Alumno(datos[0],datos[1],datos[2]),0,0);
+		        // La última línea del archivo, será hasta ahorita la siguiente.
+		        contenidoA1 = f1.readLine();    		
+				inicioF1+=1;
+        	}
+        }
+		// Se añade una interrupción de FINAL DE ITERACIÓN AL ARCHIVO FINAL.
+		añadir(new Alumno("Final","Final","final"),0,-1);
+		
 	    f1.close();
 	    f2.close();
-	}
-	public ArrayList<Alumno> ordenar(ArrayList<Alumno> alumnos){
-       	for (int i = 0; i < alumnos.size()-1; i++) {
-       	    for (int j = 0; j < alumnos.size()-i-1; j++) {
-       	    	int prioridadAlu1 = prioridad(alumnos.get(j).getNombre(),0);
-       	    	int prioridadAlu2 = prioridad(alumnos.get(j+1).getNombre(),0);
-       	        if(prioridadAlu1==prioridadAlu2){
-       	        	// Si tienen la misma prioridad hay una COLISIÓN.
-       	        	int ganador = resolverColision(alumnos.get(j).getNombre(),alumnos.get(j+1).getNombre());
-       	        	// Ahora que se sabe quien tiene mejor probabilidad se ordenará 
-       	        	if(ganador==2){
-       	        		// Si el ganador es el segundo, quiere decir que el segundo 
-       	        		// VA ANTES, así que se realiza un intercambio.
-       	        		Alumno temp = alumnos.get(j);
-       	        		alumnos.set(j,alumnos.get(j+1));
-       	        		alumnos.set(j+1,temp);
-       	        	}
-       	        // Si la prioridad del primer alumno es mayor, quiere decir que 
-       	        // alfabéticamente va después, por lo que debe haber un intercambio.
-       	        }else if (prioridadAlu1 > prioridadAlu2){ 
-       	            Alumno temp = alumnos.get(j);
-       	            alumnos.set(j,alumnos.get(j+1));
-       	            alumnos.set(j+1,temp);
-       	        } 
-       	    }
-       	}
-       	return alumnos;
-	}
-	public void printInt(int[] prioridades){
-		System.out.println();
-		for (int i = 0;i<prioridades.length ;i++ ) {
-			System.out.printf("[ "+prioridades[i]+" ]");
-		}
-		System.out.println();
-	}
-	public void print(ArrayList<Alumno> alumnos){
-		for (Alumno alumno : alumnos) {
-			alumno.info();
-		}
+
+	    int[] finales ={inicioF1+1,inicioF2+1};
+	    return finales;
 	}
 
-	// Este método servirá para poder identificar si se están leyendo los valores en orden
-	// y posteriormente para poder ordenarlos.
-	public int prioridad(String cadena, int indice){
-		try{
-			// La prioridad de elección se realizará mediante el primer caracter del nombre
-			// y se devolverá el índice, entre menor sea el índice, hay mayor prioridad.
-			char mayusculas[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
-			char minusculas[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-			char letra = cadena.charAt(indice);
-			for(int i=0;i<mayusculas.length;i++){
-				char aux = mayusculas[i];
-				if(letra == aux){
-					// Retorna la prioridad dada por el índice.
-					return i;
-				}
-			}
-			for (int i=0;i<minusculas.length;i++) {
-				char aux = minusculas[i];
-				if(letra == aux){
-					// La prioridad será siempre menor a las mayúsculas.
-					return i+26;
-				}				
-			}
-			return 0;
-		}catch(StringIndexOutOfBoundsException excepcion){
-			// Si llega a tratar de buscarse fuera de la cadena...
-			return -100;
-		}
-	}
+	public void sortApellidos(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{}
 
-
+	
 	public void separarArchivo(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{
 
 		/***************************************************************************/
@@ -312,6 +257,35 @@ System.out.println("Mezclas="+mezclas);
 		añadir(ultimoLista,2,-1);
 	}
 
+	public ArrayList<Alumno> ordenar(ArrayList<Alumno> alumnos){
+       	for (int i = 0; i < alumnos.size()-1; i++) {
+       	    for (int j = 0; j < alumnos.size()-i-1; j++) {
+       	    	int prioridadAlu1 = prioridad(alumnos.get(j).getNombre(),0);
+       	    	int prioridadAlu2 = prioridad(alumnos.get(j+1).getNombre(),0);
+       	        if(prioridadAlu1==prioridadAlu2){
+       	        	// Si tienen la misma prioridad hay una COLISIÓN.
+       	        	int ganador = resolverColision(alumnos.get(j).getNombre(),alumnos.get(j+1).getNombre());
+       	        	// Ahora que se sabe quien tiene mejor probabilidad se ordenará 
+       	        	if(ganador==2){
+       	        		// Si el ganador es el segundo, quiere decir que el segundo 
+       	        		// VA ANTES, así que se realiza un intercambio.
+       	        		Alumno temp = alumnos.get(j);
+       	        		alumnos.set(j,alumnos.get(j+1));
+       	        		alumnos.set(j+1,temp);
+       	        	}
+       	        // Si la prioridad del primer alumno es mayor, quiere decir que 
+       	        // alfabéticamente va después, por lo que debe haber un intercambio.
+       	        }else if (prioridadAlu1 > prioridadAlu2){ 
+       	            Alumno temp = alumnos.get(j);
+       	            alumnos.set(j,alumnos.get(j+1));
+       	            alumnos.set(j+1,temp);
+       	        } 
+       	    }
+       	}
+       	return alumnos;
+	}
+
+
 	public void añadir(Alumno alumno, int archivo, int interrupcion) throws FileNotFoundException, IOException{
 		// El valor del tercer argumento indica que tipo de interrupción se añadirá en
 		// el archivo.
@@ -346,21 +320,22 @@ System.out.println("Mezclas="+mezclas);
 			switch (archivo){
 				case 0:
 					// Se añadirá el alumno en el archivo FINAL.
-					f0.write(nombre+", "+apellido+ ", " +cuenta+"\n");
+					f0.write(nombre.trim()+", "+apellido.trim()+ ", "+cuenta.trim()+"\n");
 				break;
 				case 1:
 					// Se añadirá el alumno al archivo auxiliar 1.
-					f1.write(nombre+", "+apellido+ ", " +cuenta+"\n");
+					f1.write(nombre.trim()+", "+apellido.trim()+ ", "+cuenta.trim()+"\n");
 				break;
 				case 2:
 					// Se añadirá el alumno al archivo auxiliar 2.
-					f2.write(nombre+", "+apellido+ ", " +cuenta+"\n");
+					f2.write(nombre.trim()+", "+apellido.trim()+ ", "+cuenta.trim()+"\n");
 				break;
 			}
 		}else{
 			switch (archivo){
 				case 0:
 					f0.write("/////////////////////////////////////////\n");
+				break;
 				case 1:
 					f1.write("/////////////////////////////////////////\n");
 				break;
@@ -374,6 +349,125 @@ System.out.println("Mezclas="+mezclas);
 		f2.close();
 	}	
 
-	public void sortApellidos(ArrayList<Alumno> alumnos) throws FileNotFoundException, IOException{}
- 	
+	// Este método servirá para poder identificar si se están leyendo los valores en orden
+	// y posteriormente para poder ordenarlos.
+	public int prioridad(String cadena, int indice){
+		try{
+			// La prioridad de elección se realizará mediante el primer caracter del nombre
+			// y se devolverá el índice, entre menor sea el índice, hay mayor prioridad.
+			char mayusculas[]={'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+			char minusculas[]={'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+			char letra = cadena.charAt(indice);
+			for(int i=0;i<mayusculas.length;i++){
+				char aux = mayusculas[i];
+				if(letra == aux){
+					// Retorna la prioridad dada por el índice.
+					return i;
+				}
+			}
+			for (int i=0;i<minusculas.length;i++) {
+				char aux = minusculas[i];
+				if(letra == aux){
+					// La prioridad será siempre menor a las mayúsculas.
+					return i+26;
+				}				
+			}
+			return 0;
+		}catch(StringIndexOutOfBoundsException excepcion){
+			// Si llega a tratar de buscarse fuera de la cadena...
+			return -100;
+		}
+	}
+
+	public ArrayList<Alumno> nuevaLista(int ultimaInt) throws FileNotFoundException, IOException{
+		
+		// Este método generará una nueva lista para que que contribuya a 
+		// saber si el archivo ya está terminado.
+		ArrayList<Alumno> nueva = new ArrayList<>();
+
+		// Se abre el archivo donde tiene el NUEVO ORDEN DE LOS DATOS.
+		File archivoFinal = new File("./FINAL.txt");
+        FileReader contenidoFinal = new FileReader(archivoFinal);
+        
+        // Se requiere pasar el contenido al buffer para que pueda leerse 
+        // línea por línea.
+        BufferedReader buffer = new BufferedReader(contenidoFinal);
+
+        // Se leerá la primera línea del archivo final.
+        String linea = buffer.readLine();
+
+        int lineaFin=1; /*En los archivos se comienza desde la línea 1.*/
+        // Este ciclo saltará las líneas necesarias hasta que pase al siguiente "///"
+        if(ultimaInt!=0){
+	        for(int i=1;i<=ultimaInt;i++){
+	        	linea = buffer.readLine();
+	        	lineaFin+=1;
+	        }
+        }
+        while(linea.charAt(0)!='/'){
+        	lineaFin+=1;
+            String[] datosAlumno = linea.split(",");
+            nueva.add(new Alumno(datosAlumno[0],datosAlumno[1],datosAlumno[2]));
+           	linea = buffer.readLine();
+        }
+		nueva.add(new Alumno("La última iteración","fue en ",""+lineaFin));
+		return nueva;       
+	}
+	
+	public boolean verificar(ArrayList<Alumno> alumnos){
+		// Si está ordenada devolverá un TRUE
+		int i;
+		for(i=0;i<alumnos.size()-1;i++){
+			Alumno anterior = alumnos.get(i);
+			Alumno alumno = alumnos.get(i+1);
+			if(prioridad(anterior.getNombre(),0)==prioridad(alumno.getNombre(),0)){
+				int prioridad = resolverColision(anterior.getNombre(),alumno.getNombre());
+				if(prioridad==2){
+					// Si el segundo valor tiene mejor prioridad ante el primer valor
+					// quiere decir que no está ordenada.
+					return false;
+				}
+			}
+			if(prioridad(anterior.getNombre(),0)>prioridad(alumno.getNombre(),0)){
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public int resolverColision(String nombre1, String nombre2){
+		// Se sabe que al menos en la primera letra (del nombre o apellido) ES IGUAL
+		// Por lo que "prioridad1" y "prioridad2" SON IGUALES.
+		int prioridad1=prioridad(nombre1,0);
+		int prioridad2=prioridad(nombre2,0);
+		int caracter=1; /*Indicará indice del próximo caracter que se analizará por prioridad.*/
+		do{
+			prioridad1=prioridad(nombre1,caracter);
+			prioridad2=prioridad(nombre2,caracter);
+			if(prioridad1<prioridad2){
+				// Si el primer nombre tiene menos prioridad que el segundo
+				// quiere decir que alfabéticamente va antes, por lo tanto, es el
+				// ganador.
+				return 1;
+			}else if(prioridad1>prioridad2){
+				// Si la prioridad del primer nombre es mayor quiere decir que
+				// el segundo nombre va alfabéticamente antes que el otro valor.
+				return 2;
+			}
+			if(prioridad1==-100||prioridad2==-100){
+				// Si hay un momento donde se genera una excepción quiere decir que
+				// jamás se encontraron diferencias y se llegó a una posición de la 
+				// cadena que no existe, por lo tanto... SON IGUALES
+				return 0;
+			}
+			caracter+=1;
+		}while(prioridad1==prioridad2);
+		return 0;
+	}	
+
+	public void print(ArrayList<Alumno> alumnos){
+		for (Alumno alumno : alumnos) {
+			alumno.info();
+		}
+	}
 }
