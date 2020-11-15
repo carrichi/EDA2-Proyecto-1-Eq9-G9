@@ -133,12 +133,13 @@ public class Polifase{
 			index=AOI.get(i);
 			k=i-1;
                         if(opc==1){
-                            while(k>-1&&(AOI.get(k).getApellido().compareTo(index.getApellido()))>0){
+			    // si ==1, index es menor
+			    while(k>-1&&menor( AOI.get(k).getApellido() , index.getApellido() )==1){
 				AOI.set(k+1,AOI.get(k));
 				k--;
                             }
                         }else{
-                            while(k>-1&&(AOI.get(k).getNombre().compareTo(index.getNombre()))>0){
+                            while(k>-1&&menor( AOI.get(k).getNombre() , index.getNombre() )==1){
 				AOI.set(k+1,AOI.get(k));
 				k--;
                             }
@@ -147,6 +148,27 @@ public class Polifase{
 			i++;
 		}
 	}	
+	
+	// determina cual de las dos cadenas es menor lexicograficamente
+	int menor(String nombre1,String nombre2){
+		int n,nom1,nom2,j=0,k=0;
+		if(nombre1.length()>nombre2.length())
+			n=nombre2.length();
+		else
+			n=nombre1.length();
+		int i=0;
+		do{
+			// obtiene el i caracter sin importar si es mayuscula o minuscula
+			nom1 = (int)nombre1.charAt(i)>96 ? (int)nombre1.charAt(i)-32 : (int)nombre1.charAt(i);
+			nom2 = (int)nombre2.charAt(i)>96 ? (int)nombre2.charAt(i)-32 : (int)nombre2.charAt(i);
+			i++;
+		}while(i<n&&nom1==nom2);
+		if(nom1>nom2)
+			return 1;
+		else
+			return -1;
+	}
+	
 	// f -> lista donde se colocarán los bloques, fl y fr listas con claves (n tamaño del bloque)
 	void faseDos(ArrayList<Alumno> f,ArrayList<Alumno> fl,ArrayList<Alumno> fr,int n,int opc){
 		// cantidades de veces que se añadieron claves a cada lista
@@ -160,7 +182,7 @@ public class Polifase{
 				Alumno Fr=fr.get(0);
 				// si >0 ent fr(0) va antes que fl(0), <0 fl(0) va antes
                                 if(opc==1){
-                                    if(Fl.getApellido().compareTo(Fr.getApellido())>0){
+                                    if(menor( Fl.getApellido() , Fr.getApellido() ) ==1){
 					f.add(fr.remove(0));
 					j++;
                                     }else{
@@ -168,7 +190,7 @@ public class Polifase{
                                     	i++;
                                     }
                                 }else{
-                                    if(Fl.getNombre().compareTo(Fr.getNombre())>0){
+                                    if(menor( Fl.getNombre() , Fr.getNombre() )==1){
 					f.add(fr.remove(0));
 					j++;
                                     }else{
