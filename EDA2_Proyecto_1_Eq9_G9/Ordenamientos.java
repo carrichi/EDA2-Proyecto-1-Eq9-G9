@@ -45,10 +45,10 @@ public class Ordenamientos{
         return listadatos;
 	}
 
-	public void polifase() throws FileNotFoundException, IOException{
+	public void polifase(String nombre, char opcion) throws FileNotFoundException, IOException{
 		ArrayList<Alumno> listadatos = datos(this.ruta);
 	    Polifase polifase = new Polifase();
-		polifase.sort(listadatos);
+		polifase.sort(listadatos,nombre,opcion);
 	}
 	public void radixSort() throws FileNotFoundException, IOException{
 		ArrayList<Alumno> listadatos = datos(this.ruta);
@@ -56,7 +56,6 @@ public class Ordenamientos{
 	public void mezclaEquilibrada(int modo)throws FileNotFoundException, IOException{
 		
 		ArrayList<Alumno> listadatos = datos(this.ruta);
-// print(listadatos);
 		MezclaEquilibrada mezcla = new MezclaEquilibrada();
 		switch (modo) {
 			case 1:

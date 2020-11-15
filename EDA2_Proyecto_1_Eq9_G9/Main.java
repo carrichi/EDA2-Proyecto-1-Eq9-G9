@@ -72,6 +72,7 @@ public class Main{
 						switch (opcion.getInt()) {
 							case 1:
 								System.out.println("Comenzó Polifase POR NOMBRES");
+								ordenamiento.polifase(nombre,'1');
 							break;
 							case 2:
 								System.out.println("Comenzó Mezcla equilibrada POR NOMBRES");
@@ -88,7 +89,8 @@ public class Main{
 						switch (opcion.getInt()) {
 							case 1:
 								System.out.println("Comenzó Polifase POR APELLIDOS");
-							break;
+								ordenamiento.polifase(nombre,'2');
+								break;
 							case 2:
 								System.out.println("Comenzó Mezcla equilibrada POR APELLIDOS");
 								ordenamiento.mezclaEquilibrada(2);

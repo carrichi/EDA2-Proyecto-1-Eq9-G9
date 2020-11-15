@@ -56,6 +56,10 @@ public class Util{
 	public int getInt(){
 		return this.entero;
 	}
+	public char getInt(int numero){
+		char letra = Integer.toString(numero).charAt(0);
+		return letra;
+	}
 	public void exit(){
 		this.letra='n';
 		this.entero=-1;
