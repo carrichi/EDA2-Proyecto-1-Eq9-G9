@@ -51,7 +51,7 @@ public class Main{
 			}else{
 				System.out.println("\t"+morado+"Si existe"+blanco+", podemos continuar.");
 
-				Ordenamientos ordenamiento = new Ordenamientos(ruta);
+				Ordenamientos ordenamiento = new Ordenamientos(ruta+"\\"+nombre+".txt");
 
 				System.out.println("¿Qué tipo de ordenamiento quieres implementar?");
 				System.out.println(" "+azulclaro+"1"+blanco+". Ordenamiento por nombres ");
