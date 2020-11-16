@@ -30,26 +30,27 @@ public class Main{
 			System.out.printf(blanco+" \n Ingresa la ruta a la carpeta de su archivo: (puede ser "+negrita+amarillo+"relativa o absoluta"+blanco+")\n > "+amarillo);
 			Scanner leer = new Scanner(System.in);
 			String ruta = leer.nextLine();
-	        
+
 			System.out.printf(blanco+" \nIngrese el nombre de su archivo ("+negrita+amarillo+"sin tipo de formato"+blanco+")\n > "+amarillo);
 			String nombre = leer.nextLine();
-			
-			// Si se utiliza Windows, descomenta las siguientes dos líneas.
-			
-			// Path datos = Paths.get(ruta+"\\"+nombre+".txt");
-			// System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+datos.toString()+reset);
-			// Se se utiliza Linux, se utilizan las siguientes dos líneas.
-			ruta = ruta+"/"+nombre+".txt";
-			System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+ruta+reset);
 
-			File archivo = new File(ruta);
+			// Si se utiliza Windows, descomenta las siguientes dos líneas.
+			Path datos = Paths.get(ruta+"\\"+nombre+".txt");
+			System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+datos.toString()+reset);
+
+			// Se se utiliza Linux, se utilizan las siguientes dos líneas.
+			//ruta = ruta+"/"+nombre+".txt";
+			//System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+ruta+reset);
+
+			//File archivo = new File(ruta);
+			File archivo = new File(datos.toString());
 			if (!archivo.exists()) {
 			    System.out.println("\n\t"+negrita+amarillo+" ¡¡No existe el archivo !!");
 			    System.out.println(blanco+" Empecemos otra vez... ");
 			    opcion.setChar('S');
 			}else{
 				System.out.println("\t"+morado+"Si existe"+blanco+", podemos continuar.");
-				
+
 				Ordenamientos ordenamiento = new Ordenamientos(ruta);
 
 				System.out.println("¿Qué tipo de ordenamiento quieres implementar?");
@@ -138,5 +139,5 @@ public class Main{
 		System.out.println("\t"+blanco+"| Estudiantes de la Facultad de Ingeniería, "+amarillo+"UNAM."+blanco+" |");
 		System.out.println("\t"+blanco+"|_________________________________________________|");
 		System.out.println();
-	}	
+	}
 }
