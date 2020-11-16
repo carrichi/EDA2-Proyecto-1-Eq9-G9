@@ -1,4 +1,3 @@
-
 import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.LinkedList;
@@ -54,8 +53,10 @@ public class Ordenamientos{
 		polifase.sort(listadatos,nombre,opcion);
 	}
 
-	public void radixSort() throws FileNotFoundException, IOException{
+	public void radixSort(String ruta) throws FileNotFoundException, IOException{
 		ArrayList<Alumno> listadatos = datos(this.ruta);
+		RadixSort radix = new RadixSort(listadatos);
+		radix.OrdenarporNC(listadatos,ruta);
 	}
 
 	public void mezclaEquilibrada(String nombreArchivo, int modo)throws FileNotFoundException, IOException{

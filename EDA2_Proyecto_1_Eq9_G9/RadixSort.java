@@ -15,74 +15,76 @@ import java.util.List;
  * @author Arturo Gonzalez
  */
 public class RadixSort {
-    private ArrayList<ficheros> listadatos;
+    private ArrayList<Alumno> listadatos;
     
     
     /** 
      * Se crea el metodo constructor con el objeto ficheros 
      */ 
-    public RadixSort(ArrayList<ficheros> listadatos){
+    public RadixSort(ArrayList<Alumno> listadatos){
         this.listadatos = listadatos;
     }
 
     /**
      * @return the listadatos
      */
-    public ArrayList<ficheros> getListadatos() {
+    public ArrayList<Alumno> getListadatos() {
         return listadatos;
     }
 
     /**
      * @param listadatos the listadatos to set
      */
-    public void setListadatos(ArrayList<ficheros> listadatos) {
+    public void setListadatos(ArrayList<Alumno> listadatos) {
         this.listadatos = listadatos;
     }
 
-     public ArrayList<ficheros> OrdenarporNC(ArrayList<ficheros> listadatos, String ruta){
+     public ArrayList<Alumno> OrdenarporNC(ArrayList<Alumno> listadatos, String ruta){
         //Se crean las sublistas para almecenar los numeros con sus respectivos valores significativos 
-        List<ficheros> lista0 = new LinkedList<>();
-        List<ficheros> lista1 = new LinkedList<>();
-        List<ficheros> lista2 = new LinkedList<>();
-        List<ficheros> lista3 = new LinkedList<>();
-        List<ficheros> lista4 = new LinkedList<>();
-        List<ficheros> lista5 = new LinkedList<>();
-        List<ficheros> lista6 = new LinkedList<>();
-        List<ficheros> lista7 = new LinkedList<>();
-        List<ficheros> lista8 = new LinkedList<>();
-        List<ficheros> lista9 = new LinkedList<>();
+        List<Alumno> lista0 = new LinkedList<>();
+        List<Alumno> lista1 = new LinkedList<>();
+        List<Alumno> lista2 = new LinkedList<>();
+        List<Alumno> lista3 = new LinkedList<>();
+        List<Alumno> lista4 = new LinkedList<>();
+        List<Alumno> lista5 = new LinkedList<>();
+        List<Alumno> lista6 = new LinkedList<>();
+        List<Alumno> lista7 = new LinkedList<>();
+        List<Alumno> lista8 = new LinkedList<>();
+        List<Alumno> lista9 = new LinkedList<>();
         
         // Se crea la lista en la cual se almacenaran las colas 
-        ArrayList<ficheros> listads = new ArrayList<>(); 
+        ArrayList<Alumno> listads = new ArrayList<>(); 
         
         // Se crea ruta f para que tenga la misma ruta que el archivo original 
-        String rutaf = ruta + "\\";
+       
+        // String rutaf = ruta + "\\"; /*Para usuario con Sistema Operativo Windows*/
+       
+        String rutaf = ruta + "/"; /*Para usuario con Sistema Operativo GNU/Linux*/
         
         int l=0;
         char indice;
         // Se crea un string el cual guardara el elemento a comparar
         String[] aux = new String[1];
         
-       
-        
         // Se clona la lista original, en esta lista se realizaran los cambios de ordenamiento
         // para no altarar la lista inicial 
-        listads = (ArrayList<ficheros>) listadatos.clone();
+        listads = (ArrayList<Alumno>) listadatos.clone();
         
-      
         //archivo para iteraciones
         try{
         int z =0;
         
         // Se crea un numero aleatorio para que el nombre del archivo cambie cada que se pruebe
         int numarchivoit = (int) (Math.random()*15);
-        // se crea el nombre final del archivo que contiene las iteraciones 
+        // Se crea el nombre final del archivo que contiene las iteraciones 
         String nombrearchivoit = "IteracionesRadix" + numarchivoit;
-            System.out.println("Su archivo con las iteraciones tiene el nombre de: "+nombrearchivoit);
+        
+        System.out.println("Su archivo con las iteraciones tiene el nombre de: "+nombrearchivoit);
+        
         FileWriter NoCuenta1 = new FileWriter(rutaf + nombrearchivoit + ".txt");
         
-       //Se crean los ciclos for anidados, el primero recorre los 6 digitos del numero
-       //El segundo recorre los elementos de la lista 
+        // Se crean los ciclos for anidados, el primero recorre los 6 digitos del numero
+        // El segundo recorre los elementos de la lista 
         for(int i=6; i>0; i--){
             for(int j=0; j<listads.size(); j++){
                 
@@ -93,62 +95,50 @@ public class RadixSort {
                 indice = aux[0].charAt(i);
                 //System.out.println("valor significativo: "+ indice);
                 
-                        // EL numero se almacena en su cola correspondiente 
-                        if (indice == '0'){
-                            lista0.add(listads.get(j));
-     
-                        }
-                        if (indice == '1'){
-                            lista1.add(listads.get(j));
-                            
-                            
-                        }
-                        if (indice == '2'){
-                            lista2.add(listads.get(j));
-                            
-                        }
-                        if (indice == '3'){
-                            lista3.add(listads.get(j));
-                        
-                        }
-                         if (indice == '4'){
-                            lista4.add(listads.get(j));
-                            
-                        }
-                        if (indice == '5'){
-                            lista5.add(listads.get(j));
-                            
-                            
-                        }
-                        if (indice == '6'){
-                            lista6.add(listads.get(j));
-                            
-                        }
-                        if (indice == '7'){
-                            lista7.add(listads.get(j));
-                        
-                        }
-                         if (indice == '8'){
-                            lista8.add(listads.get(j));
-                            
-                        }
-                        if (indice == '9'){
-                            lista9.add(listads.get(j));
-                        
-                        }  
-                        
-            }//Termina de añadir los valores a la cola
-                System.out.println("Realizando iteracion: "+(z+1)+"...");
-                // se escribe en archivo cada iteracion
-                 NoCuenta1.write("Iteracion : "+(z+1)+"\n\n");
-                 z = z+1;
-                 // se recorre la lista antes de borrar los datos de la iteracion
-                for(ficheros datos1: listads){
-                    NoCuenta1.write(datos1.getApellido()+", "+datos1.getNombre()+", "+datos1.getNoCuenta()+"\n");
+                // EL numero se almacena en su cola correspondiente 
+                if (indice == '0'){
+                    lista0.add(listads.get(j));
                 }
-                  
-           // Se borran los elementos de la lista para que los elementos no se vuelvan 
-           //a escribir, y se repitan 
+                if (indice == '1'){
+                    lista1.add(listads.get(j));
+                }
+                if (indice == '2'){
+                    lista2.add(listads.get(j));
+                }
+                if (indice == '3'){
+                    lista3.add(listads.get(j));
+                }
+                if (indice == '4'){
+                    lista4.add(listads.get(j));
+                }
+                if (indice == '5'){
+                    lista5.add(listads.get(j));
+                }
+                if (indice == '6'){
+                    lista6.add(listads.get(j));
+                }
+                if (indice == '7'){
+                    lista7.add(listads.get(j));
+                }
+                if (indice == '8'){
+                    lista8.add(listads.get(j));
+                }
+                if (indice == '9'){
+                    lista9.add(listads.get(j));
+                }  
+            }
+            //Termina de añadir los valores a la cola
+            System.out.println("Realizando iteracion: "+(z+1)+"...");
+            // Se escribe en archivo cada iteracion
+            NoCuenta1.write("Iteracion : "+(z+1)+"\n\n");
+            z = z+1;
+            // Se recorre la lista antes de borrar los datos de la iteracion
+            for(Alumno datos1: listads){
+                NoCuenta1.write(datos1.getApellido()+", "+datos1.getNombre()+", "+datos1.getNoCuenta()+"\n");
+            }
+
+            // Se borran los elementos de la lista para que los elementos no se vuelvan 
+            //a escribir, y se repitan 
             listads.clear();
             
             //Vaciamos las colas en la lista
@@ -192,7 +182,6 @@ public class RadixSort {
                  listads.add(lista9.get(m));
              }//Termina de vaciar cola 9
             
-            
             // Se limpian las listas para volver a otra iteracion 
             lista0.clear();
             lista1.clear();
@@ -204,22 +193,16 @@ public class RadixSort {
             lista7.clear();
             lista8.clear();
             lista9.clear();
-           
         }
-         NoCuenta1.close(); 
-                 } catch (Exception e) {
-         }
-        //Se imprime la lista ordenada 
-        /* System.out.println("\n\tOrdenamiento creado con exito: ");
-        System.out.println("\tLa lista ordenada queda como: \n");
-        for(ficheros datos1: listads){
-            System.out.println(datos1.getApellido()+","+datos1.getNombre()+","+datos1.getNoCuenta());
-        }*/
+            NoCuenta1.close(); 
+        } catch (Exception e) {
         
+        }
+
         // Se crea el archivo final
         // El cual contiene los datos ordenados por numero de cuenta 
         
-            // se crea numero aleatorio para que el nombre del archivo no se repita 
+        // Se crea numero aleatorio para que el nombre del archivo no se repita 
         int numarchivo = (int) (Math.random()*15);
         String nombrearchivo = "OrdenamientoRadix" + numarchivo;
          System.out.println("\n\tSu ordenamiento fue realizado con exito \n");
@@ -229,14 +212,12 @@ public class RadixSort {
         System.out.println("\nNombre de su archivo final:  "+nombrearchivo);
          //System.out.println("Nombre del archivo con iteraciones: "+nombrearchivoit);
        
-        
-    
         try{
              // Se crea el archivo
              FileWriter NoCuenta=new FileWriter(rutaf + nombrearchivo + ".txt");
              //NoCuenta.write("***Radix Sort***\n");
              
-             for(ficheros datos1: listads){
+             for(Alumno datos1: listads){
                 NoCuenta.write(datos1.getApellido()+", "+datos1.getNombre()+", "+datos1.getNoCuenta()+"\n");
              }
              
@@ -248,5 +229,3 @@ public class RadixSort {
     }
     
 }
-
-

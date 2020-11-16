@@ -35,6 +35,7 @@ public class Main{
 			String nombre = leer.nextLine();
 			
 			// Si se utiliza Windows, descomenta las siguientes dos líneas.
+			
 			// Path datos = Paths.get(ruta+"\\"+nombre+".txt");
 			// System.out.println(blanco+"\n La ruta ingresada es: "+negrita+azulclaro+datos.toString()+reset);
 			// Se se utiliza Linux, se utilizan las siguientes dos líneas.
@@ -61,9 +62,9 @@ public class Main{
 				switch (opcion.getChar()){
 					case '1':
 					    System.out.println("\n "+blanco+"##################################################################");
-						System.out.println(" #             HAS ELEGIDO ORDENAR MEDIANTE: "+morado+"NOMBRES   "+blanco+"           #");
-						System.out.println(" ##################################################################");
-						System.out.printf("\n Mediante que método deseas acomodar los nombres?\n "+azulclaro+"1."+blanco+" Polifase \n "+azulclaro+"2."+blanco+" Mezcla Equilibrada\n > ");
+						System.out.println(" "+blanco+"#             HAS ELEGIDO ORDENAR MEDIANTE: "+morado+"NOMBRES   "+blanco+"           #");
+						System.out.println(" "+blanco+"##################################################################");
+						System.out.printf("\n "+blanco+"Mediante que método deseas acomodar los nombres?\n "+azulclaro+"1."+blanco+" Polifase \n "+azulclaro+"2."+blanco+" Mezcla Equilibrada\n > ");
 						opcion.setInt();
 						switch (opcion.getInt()) {
 							case 1:
@@ -78,8 +79,8 @@ public class Main{
 					break;
 					case '2':
 						System.out.println("\n "+blanco+"##################################################################");
-						System.out.println(" #            HAS ELIGIDO ORDENAR MEDIANTE: "+morado+"APELLIDOS"+blanco+"             #");
-						System.out.println(" ##################################################################");
+						System.out.println(" "+blanco+"#            HAS ELIGIDO ORDENAR MEDIANTE: "+morado+"APELLIDOS"+blanco+"             #");
+						System.out.println(" "+blanco+"##################################################################");
 						System.out.printf("\n Mediante que método deseas acomodar los nombres?\n "+azulclaro+"1."+blanco+" Polifase \n "+azulclaro+"2."+blanco+" Mezcla Equilibrada\n > ");
 						opcion.setInt();
 						switch (opcion.getInt()) {
@@ -94,17 +95,18 @@ public class Main{
 						}
 					break;
 					case '3':
-						System.out.println("\n ##################################################################");
-						System.out.println(" #         HAS ELIGIDO ORDENAR MEDIANTE: Número de cuenta         #");
-						System.out.println(" ##################################################################");
+						System.out.println("\n "+blanco+"##################################################################");
+						System.out.println(" "+blanco+"#         HAS ELIGIDO ORDENAR MEDIANTE: "+morado+"NÚMERO DE CUENTA"+blanco+"         #");
+						System.out.println(" "+blanco+"##################################################################");
 						// Ya que se eligió por número de cuenta, se ordenará directamente por RadixSort
-						System.out.println("\tComenzó RadixSort");
+						System.out.println("");
+						ordenamiento.radixSort(ruta);
 					break;
 					case '4':
 						opcion.exit();
 					break;
 					default:
-						System.out.printf("\n      ¡¡¡  NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.  !!!  ");
+						System.out.printf("\n      "+rojo+"¡¡¡"+blanco+"  NO HAS ELEGIDO CORRECTAMENTE. Intenta de nuevo.  "+rojo+"!!!"+blanco+"  ");
 						// Se asigna una opción que hará que se pueden repetir las opciones del menú nuevamente.
 						opcion.setChar('S');
 						System.out.println();
@@ -123,18 +125,18 @@ public class Main{
 		}while(opcion.getChar()=='S');
 
 		// El usuario ha decidido salir del programa.
-		System.out.println("\t-> HAS ELEGIDO SALIR");
+		System.out.println("\t-> "+azulclaro+"HAS ELEGIDO SALIR");
 		System.out.println();
-		System.out.println("\t _________________________________________________");
-		System.out.println("\t| Gracias por utilizar el programa.               |");
-		System.out.println("\t|                                                 |");
-		System.out.println("\t| Colaboradores del proyecto:                     |");
-		System.out.println("\t|    "+amarillo+"-> "+morado+"Carrichi de la Cruz, Roberto Carlos "+blanco+"      |");
-		System.out.println("\t|    "+amarillo+"-> "+morado+"Gonzalez Cuellar, Arturo"+blanco+"                  |");
-		System.out.println("\t|    "+amarillo+"-> "+morado+"Miranda Bueno, Fátima Yolanda "+blanco+"            |");
-		System.out.println("\t|                                                 |");
-		System.out.println("\t| Estudiantes de la Facultad de Ingeniería, "+amarillo+"UNAM."+blanco+" |");
-		System.out.println("\t|_________________________________________________|");
+		System.out.println("\t "+blanco+"_________________________________________________");
+		System.out.println("\t"+blanco+"| Gracias por utilizar el programa.               |");
+		System.out.println("\t"+blanco+"|                                                 |");
+		System.out.println("\t"+blanco+"| Colaboradores del proyecto:                     |");
+		System.out.println("\t"+blanco+"|    "+amarillo+"-> "+morado+"Carrichi de la Cruz, Roberto Carlos "+blanco+"      |");
+		System.out.println("\t"+blanco+"|    "+amarillo+"-> "+morado+"Gonzalez Cuellar, Arturo"+blanco+"                  |");
+		System.out.println("\t"+blanco+"|    "+amarillo+"-> "+morado+"Miranda Bueno, Fátima Yolanda "+blanco+"            |");
+		System.out.println("\t"+blanco+"|                                                 |");
+		System.out.println("\t"+blanco+"| Estudiantes de la Facultad de Ingeniería, "+amarillo+"UNAM."+blanco+" |");
+		System.out.println("\t"+blanco+"|_________________________________________________|");
 		System.out.println();
 	}	
 }
